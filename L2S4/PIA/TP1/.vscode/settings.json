@@ -1,0 +1,17 @@
+{
+	"files.associations": {
+		"*.sqlbook": "sql",
+		"*.ndjson": "jsonl",
+		"*.dbclient-js": "javascript",
+		"array.h": "c",
+		"stdbool.h": "c",
+		"stdlib.h": "c",
+		"stdio.h": "c",
+		"array": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"random": "c",
+		"limits": "c",
+		"algorithm": "c"
+	}
+}

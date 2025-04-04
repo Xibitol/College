@@ -1,0 +1,26 @@
+{
+	"files.associations": {
+		"*.sqlbook": "sql",
+		"*.ndjson": "jsonl",
+		"*.dbclient-js": "javascript",
+		"array.h": "c",
+		"stdbool.h": "c",
+		"stdlib.h": "c",
+		"stdio.h": "c",
+		"array": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"random": "c",
+		"limits": "c",
+		"algorithm": "c",
+		"string.h": "c",
+		"string": "c",
+		"array.inc.h": "c",
+		"assert.h": "c",
+		"list.inc.h": "c",
+		"deque": "c",
+		"unordered_map": "c",
+		"vector": "c",
+		"list.h": "c"
+	}
+}
