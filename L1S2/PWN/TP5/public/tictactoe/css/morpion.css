@@ -1,0 +1,23 @@
+:root {
+    --tailleCase: 5rem;
+}
+
+table {
+    margin: auto;
+}
+
+.case {
+    width: var(--tailleCase);
+    height: var(--tailleCase);
+    border: 1px solid;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.case--joueurA {
+    background-image: url(../images/croix.png);
+}
+
+.case--joueurB {
+    background-image: url(../images/rond.png);
+}

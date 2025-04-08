@@ -1,0 +1,21 @@
+ /**** variables de couleur *********/
+ 
+ :root {
+     --coul-base: #354E8F;
+     --coul-base-foncee: #121b32;
+     --coul-accent: rgb(242, 114, 38);
+     --coul-accent-foncee: hsl(22, 89%, 40%);
+     --coul-accent-transparent: rgb(242, 114, 38, 0.94);
+     --coul-neutre-claire: #f0f0f0;
+     --coul-neutre-medium: #ddd;
+     --coul-neutre-foncee: rgb(51 51 51);
+     --coul-neutre-foncee-transparente: rgb(0 0 0 /0.6);
+ }
+ /* Ici on a défini l'ensemble des couleurs utilisées par le site */
+ /* Pour utiliser une variable, on fait :
+   h1{
+       background-color : var(--coul-neutre-foncee-transparente) ;
+       color : var(--coul-neutre-claire) ;
+   }
+
+   */

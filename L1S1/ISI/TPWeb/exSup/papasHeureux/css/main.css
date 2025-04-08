@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico');
+
+html{
+	background-color: #FFF;
+	color: #555;
+	font-family: calibri;
+}
+
+body{
+	width: 100%;
+
+	overflow: hidden;
+}
+
+header{
+	background-color: #24376F;
+}
+header *{
+	color: #FFF;
+}
+header h1{
+	font-family: "Pacifico";
+}
+header nav ul{
+	margin: 0;
+	padding: 0;
+
+	font-size: 2em;
+	text-align: center;
+	line-height: 145%;
+	list-style: none;
+}
+header nav ul li{
+	transition: background-color 0.5s;
+}
+header nav ul li:hover{
+	background-color: #C3DFF5;
+}
+header nav ul li a{
+	text-decoration: none;
+}
+
+div.avatarContainer{
+	display: flex;
+	flex-flow: row wrap;
+}
+div.avatarContainer > *{
+	width: 25%;
+}
+
+table{
+	border-collapse: collapse;
+}
+table th, table td{
+	margin: -1px;
+	padding: 0.5em 1em;
+
+	border: 1px solid #47699F;
+}
+table th{
+	color: white;
+	background-color: #47699F;
+}
+table img{
+	width: 10rem;
+}
+
+input, textarea{
+	display: block;
+}

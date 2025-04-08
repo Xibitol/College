@@ -1,0 +1,16 @@
+@media screen and (width>=40rem){
+	.sport__container{
+		flex-flow: row;
+	}
+	.sport{
+		display: flex;
+		flex-flow: column;
+		justify-content: start;
+
+		flex: 1;
+		padding: 16px;
+	}
+	.sport__illustration{
+		margin-top: auto;
+	}
+}

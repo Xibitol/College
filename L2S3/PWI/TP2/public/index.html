@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Formulaire</title>
+    </head>
+
+    <body>
+        <form id="formulaire" method="post" action="traitement.php">
+            <fieldset>
+                <legend>Recherche d'emploi : Fiche</legend>
+                <p>
+                    <label for="nom" >Nom*</label>
+                    <input type="text" id="nom" name="nom" required>
+                </p>
+                <p>
+                    <label for="prenom">prenom*</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </p>
+                <p>
+                    <label for="age" >Age*</label>
+                    <input type="date" id="age" name="age" required>
+                </p>
+                <p>
+                    <label for="email">email*</label>
+                    <input type="email" id="email" name="email" required>
+                </p>
+
+				<section>
+					<h2>Mes sports préférés</h2>
+					<p>
+						<label for="danse">Danse</label>
+						<input id="danse" type="checkbox"
+							name="sports[]"
+							value="Danse"
+						>
+						<label for="handball">Handball</label>
+						<input id="handball" type="checkbox"
+							name="sports[]"
+							value="Handball"
+						>
+						<label for="muscu">Musculation</label>
+						<input id="muscu" type="checkbox"
+							name="sports[]"
+							value="Musculation"
+						>
+						<label for="surf">Surf</label>
+						<input id="surf" type="checkbox"
+							name="sports[]"
+							value="Surf"
+						>
+					</p>
+				</section>
+            </fieldset>
+
+            <p class="submit">
+                <input type="submit" id="btnSubmit" name="send" value="Continuer"/>
+                <input type="reset" id="btnReset" value="Annuler"/>
+            </p>
+            <p class="note">* information obligatoire</p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+Monstre;DragonRouge;Dragon;300;40;20;Glace;Feu
+Personnage;Arthas;Guerrier;150;20;10;Coup de bouclier (Étourdit l'ennemi)
+Monstre;OrcSanguinaire;Orc;180;25;10;Magie;Physique
+Monstre;GolemDePierre;Golem;250;15;30;Eau;Physique
+Personnage;Morgana;Mage;100;30;5;Boule de feu (Dégâts en zone)
+Personnage;Legolas;Archer;120;25;8;Tir perçant (Ignore l'armure)
+Monstre;SpectreNoir;Spectre;120;35;5;Lumière;Ténèbres
+Monstre;Zombie;Mort_Vivant;100;10;5;Feu;Poison
+Personnage;Gandalf;Mage;130;35;4;Invocation d'esprit (Invoque une créature alliée)

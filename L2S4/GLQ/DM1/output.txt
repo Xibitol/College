@@ -1,0 +1,5 @@
+$ java -cp out/src/dev dev.pimous.AppLoader
+Xibitol
+Rulietta
+Xibitol
+Rulietta

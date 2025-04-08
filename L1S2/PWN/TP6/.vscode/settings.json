@@ -1,0 +1,5 @@
+{
+	"livePreview.serverRoot": "public",
+	"livePreview.defaultPreviewPath": "/",
+	"livePreview.openPreviewTarget": "Embedded Preview"
+}

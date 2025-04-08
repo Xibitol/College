@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("/style/lib/reset.css");
+
+*, *::before, *::after{
+	margin: 0;
+	padding: 0;
+
+	color: #222;
+	font-size: 1rem;
+	font-family: "Comic Neue", cursive !important;
+	text-align: justify;
+
+	box-sizing: border-box;
+}
+
+html, body{
+	width: 100%;
+	min-height: 100dvh;
+
+	font-size: 16px;
+}
+body{
+	padding: 0 16px;
+}
+
+/* PAGE CONTENT */
+body > *{
+	width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6{
+	margin-bottom: 8px;
+
+	font-weight: bold;
+}
+p{
+	margin-bottom: 4px;
+
+	line-height: 1.25rem;
+}
+h1{ font-size: 2.5rem; }
+h2{ font-size: 1.5rem; }
+h3{ font-size: 1.17rem; }
+h4, p{ font-size: 1rem; }
+h5{ font-size: .83rem; }
+h6{ font-size: .67rem; }
+
+a{
+color: initial;
+}
+strong{ font-weight: bold; }
+em{ font-style: italic; }
+
+/* HEADER */
+.header{
+	width: 100%;
+	margin: 64px 0 32px;
+}
+.header__title{
+	margin-bottom: 8px;
+
+	font-family: "Bebas Neue", sans-serif;
+}
+
+.navigation, .navigation__list{
+	width: 100%;
+}
+.navigation__list{
+	list-style-type: none;
+}
+.navigation__item{
+	padding: 4px;
+
+	text-align: center;
+	background-color: #EEE;
+	border: #999 solid 2px;
+}
+.navigation__item:not(:last-child){
+	margin-bottom: 8px;
+}
+.navigation__item--current{
+	background-color: #222;
+	border-color: #222;
+}
+.navigation__link{
+	color: royalblue;
+	font-size: 1.5rem;
+	font-weight: bolder;
+	letter-spacing: .05em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.navigation__item--current .navigation__link{
+	color: yellow;
+}
+
+@media screen and (width>=40rem){
+	.header{
+		margin-top: 128px;
+	}
+
+	.navigation__list{
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+
+		gap: 32px;
+	}
+	.navigation__item{
+		margin-bottom: 0 !important;
+		width: 100%;
+		padding: 16px;
+	}
+}
+
+/* FOOTER */
+.footer{
+	padding: 16px;
+}
+.footer > *{
+	margin: 0;
+
+	color: #777;
+	font-size: .83rem;
+	text-align: end;
+}

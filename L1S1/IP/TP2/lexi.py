@@ -1,0 +1,1 @@
+print("Names in lexicographic order :", " and ".join(sorted([input("Give a name : "), input("Give another name : ")])))

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Graduate School Search</title>
+	<link rel="shortcut icon" href="favicon.png" type="image/png">
+	<link rel="stylesheet" href="/css/page.css">
+	<script src="/js/gestionFormulaire.js" defer></script>
+	<script src="js/tableAnims.js" defer></script>
+</head>
+<body>
+	<main>
+		<h1>Graduate school<br>research</h1>
+
+		<p id="warning">
+			Cette page n'est pas adaptée aux appareils mobiles (Téléphone, Tablette). Veuillez utiliser un ordinateur.
+		</p>
+
+		<form class="formulairePourBDProf">
+			<section id="simpleForm">
+				<div class="inputWrapper">
+					<select id="search" name="requete">
+						<option selected disabled hidden>- Select a search ...</option>
+						<option value="SELECT `Année`, `Rentrée universitaire`, `Commune`, `Type établissement`, `Secteur`, `Sexe`, `Effectif`, GREATEST(`Effectif DUT`, 0) AS `Effectif DUT`, GREATEST(`effectif Ingénieurs`, 0) AS `Effectif ingénieurs`, `donnees_diffusables` AS `Données diffusables`, `donnees_soumises_au_secret_stat` AS `Données soumises au secret stat` FROM ESR ORDER BY `Année`, `Type établissement`, `Sexe`">Everything</option>
+						<option value="SELECT `uucr_id`, `Code académie`, `Code région`, `Code secteur`, `niveau_geo`, `geo_id`, `Regroupement`, `Code sexe`, `Diffusable`, `secret`, `Année`, `a des effectifs en DUT`, `a des effectifs en ingénieurs` FROM ESR ORDER BY `Année`, `Regroupement`, `Code sexe`">Every identifiers</option>
+						<option value="SELECT * FROM ESR">Too much</option>
+
+						<option disabled>--- Totals ---</option>
+						<option value="SELECT `Année`, `Rentrée universitaire`, SUM(`Effectif`) AS 'Effectif', SUM(`Effectif DUT`) AS 'Effectif DUT', SUM(`effectif Ingénieurs`) AS 'Effectif ingénieurs' FROM ESR WHERE `Type établissement`!='Total des formations d\'enseignement supérieur' GROUP BY `Année`">Total students per years</option>
+						<option value="SELECT `Secteur`, SUM(`Effectif`) AS `Effectif`, SUM(`Effectif DUT`) AS 'Effectif DUT', SUM(`effectif Ingénieurs`) AS 'Effectif ingénieurs' FROM ESR WHERE `Type établissement`!='Total des formations d\'enseignement supérieur' GROUP BY `Secteur`">Total students per institution sectors</option>
+						<option value="SELECT `Type établissement`, `Commune`, SUM(`Effectif`) AS 'Effectif', SUM(`Effectif DUT`) AS 'Effectif DUT', SUM(`effectif Ingénieurs`) AS 'Effectif ingénieurs' FROM ESR GROUP BY `Type établissement`">Total students per institutions</option>
+						<option value="SELECT `Sexe`, SUM(`Effectif`) AS 'Effectif', SUM(`Effectif DUT`) AS 'Effectif DUT', SUM(`effectif Ingénieurs`) AS 'Effectif ingénieurs' FROM ESR WHERE `Type établissement`!='Total des formations d\'enseignement supérieur' GROUP BY `Sexe`">Total students per genders</option>
+
+						<option disabled>--- Averages ---</option>
+						<option value="SELECT `Année`, `Rentrée universitaire`, ROUND(AVG(`Effectif`)) AS `Effectif`, ROUND(AVG(`Effectif DUT`)) AS 'Effectif DUT', ROUND(AVG(`effectif Ingénieurs`)) AS 'Effectif ingénieurs' FROM ESR WHERE `Type établissement`!='Total des formations d\'enseignement supérieur' GROUP BY `Année`">Average students per years</option>
+						<option value="SELECT `Secteur`, ROUND(AVG(`Effectif`)) AS `Effectif`, ROUND(AVG(`Effectif DUT`)) AS 'Effectif DUT', ROUND(AVG(`effectif Ingénieurs`)) AS 'Effectif ingénieurs' FROM ESR WHERE `Type établissement`!='Total des formations d\'enseignement supérieur' GROUP BY `Secteur`">Average students per institution sectors</option>
+						<option value="SELECT `Type établissement`, `Commune`, ROUND(AVG(`Effectif`)) AS `Effectif`, ROUND(AVG(`Effectif DUT`)) AS 'Effectif DUT', ROUND(AVG(`effectif Ingénieurs`)) AS 'Effectif ingénieurs' FROM ESR WHERE `Type établissement`!='Total des formations d\'enseignement supérieur' GROUP BY `Type établissement`">Average students per institutions</option>
+						<option value="SELECT `Sexe`, ROUND(AVG(`Effectif`)) AS `Effectif`, ROUND(AVG(`Effectif DUT`)) AS 'Effectif DUT', ROUND(AVG(`effectif Ingénieurs`)) AS 'Effectif ingénieurs' FROM ESR WHERE `Type établissement`!='Total des formations d\'enseignement supérieur' GROUP BY `Sexe`">Average students per genders</option>
+
+						<option disabled>--- Institutions ---</option>
+						<option value="SELECT `Type établissement`, `Secteur`, `Commune`, SUM(`Effectif`) AS 'Effectif', SUM(`Effectif DUT`) AS 'Effectif DUT' FROM ESR WHERE `a des effectifs en DUT`='oui' GROUP BY `Type établissement`, `Secteur`">Institutions with DUT students</option>
+						<option value="SELECT `Type établissement`, `Secteur`, `Commune`, SUM(`Effectif`) AS 'Effectif', SUM(`effectif Ingénieurs`) AS 'Effectif ingénieurs' FROM ESR WHERE `a des effectifs en ingénieurs`='oui' GROUP BY `Type établissement`, `Secteur`">Institutions with engineers students</option>
+						<option value="SELECT `Type établissement`, `Secteur`, `Commune`, SUM(`Effectif`) AS 'Effectif' FROM ESR WHERE `a des effectifs en DUT`='non' AND `a des effectifs en ingénieurs`='non' GROUP BY `Type établissement`, `Secteur`">Other institutions</option>
+						<option value="SELECT * FROM ESR WHERE `Code sexe`='1'">dsqjdhkqsdgs</option>
+					</select>
+					<label for="search">Que cherchez-vous ?</label>
+				</div>
+
+				<input type="submit" value="search">
+			</section>
+
+			<section id="advancedForm">
+
+			</section>
+		</form>
+		<a id="advanced" href="/?mode=advanced">Mode avancé</a>
+		<section id="errors" class="affichageDesErreurs"></section>
+
+		<section id="results" class="affichageBD">
+			<table>
+			</table>
+		</section>
+	</main>
+
+	<footer>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 240">
+			<path d="M0,0L34.3,26.7C68.6,53,137,107,206,149.3C274.3,192,343,224,411,208C480,192,549,128,617,96C685.7,64,754,64,823,90.7C891.4,117,960,171,1029,202.7C1097.1,235,1166,245,1234,224C1302.9,203,1371,149,1406,122.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
+		</svg>
+		<h6>
+			Graduate School Research &copy; 2023 by M. Itol & M. Jules is licensed under
+			<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1"
+				target="_blank"
+				rel="license noopener noreferrer"
+			>CC BY-NC-SA 4.0</a>.
+		</h6>
+	</footer>
+</body>
+</html>

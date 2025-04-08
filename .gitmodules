@@ -1,0 +1,17 @@
+# L1S2
+[submodule "L1S2/PTADD"]
+	path = L1S2/PTADD
+	url = git@gitlab.univ-lr.fr:l12024/quantumquartet/petrescue
+
+# L2S3
+[submodule "L2S3/PTADD"]
+	path = L2S3/PTADD
+	url = git@gitlab.univ-lr.fr:projets-l2-2024/quantum-quartet/covoiturage-la-rochelle/EcovoitAPI
+[submodule "L2S3/PIN/Triominoes"]
+	path = L2S3/PIN/Triominoes
+	url = git@gitlab.univ-lr.fr:xibitol/PIN-Triominoes
+
+# L2S4
+[submodule "L2S4/PIA/CSP-Fork"]
+	path = L2S4/PIA/CSP-Fork
+	url = git@github.com:Xibitol/csp-Fork

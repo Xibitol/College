@@ -1,0 +1,106 @@
+Liste des factures distincts par ordre croissant des numéros, 
+en indiquant pour chaque facture le numéro de la facture et le nom du client.
+
+nofacture   nom       
+----------  ----------
+1001        Rivoire   
+1002        Provent   
+1003        Rivoire   
+1005        Dallalon  
+1006        Rivoire   
+1007        Favero    
+1008        Provent   
+1009        Dallalon  
+1010        Rivoire   
+1011        Labric    
+
+Numéros distincts des factures non réglées, en ordre croissant, 
+et nom du client correspondant.
+
+nofacture   nom       
+----------  ----------
+1009        Dallalon  
+1010        Rivoire   
+1011        Labric    
+
+Numéros et dates des factures réglées du client Rivoire, 
+avec en plus numéros et date des factures en cours du client Dallalon.
+
+nofacture   	datefacture
+----------  	-----------
+1001		"2019-02-12"
+1003		"2019-04-24"
+1006		"2019-07-08"
+1009		"2019-07-22"
+
+Liste de toutes les références de produits par ordre décroissant des quantités remplacées,
+en indiquant pour chaque produit sa référence, le numéro de l’intervention, et leur quantité.
+Même les références de produits qui n’ont jamais été remplacés doivent y figurer.
+
+reference   nointerv    qteremplacee
+----------  ----------  ------------
+DT180       1049        4           
+DT120       1052        3           
+DT711       1047        3           
+DT120       1047        2           
+DT125       1045        2           
+DT711       1043        2           
+DT711       1049        2           
+DT711       1051        2           
+DT010       1045        1           
+DT015       1048        1           
+DT120       1051        1           
+DT180       1043        1           
+DT205       1044        1           
+DT205       1050        1           
+DT310       1046        1           
+DT802       1043        1           
+DT121                               
+DT122                               
+
+Liste de toutes les factures en ordre croissant des numéros de facture,
+en indiquant les numéros d’interventions correspondants.
+Même les factures n’ayant pas donné lieu à une intervention doivent apparaître dans le résultat.
+
+nofacture   nointerv  
+----------  ----------
+1000                  
+1001        1039      
+1002        1040      
+1002        1041      
+1003        1042      
+1004                  
+1005        1043      
+1006        1044      
+1007        1045      
+1007        1046      
+1008        1047      
+1009        1048      
+1010        1049      
+1011        1050      
+1011        1051      
+1011        1052      
+1012                  
+1013                  
+
+Numéros distincts des factures pour lesquelles à la fois Bonnaz et Saultier sont intervenus.
+
+nofacture 
+----------
+1011      
+
+Désignation des produits qui n’ont jamais été remplacés.
+
+designation
+-----------
+Connecteur1
+Connecteur2
+
+Liste des clients (numéro et nom) par ordre croissant de numéro, qui n’ont jamais eu d’intervention.
+
+noclient    nom       
+----------  ----------
+108         Usturritz 
+109         Lavalee   
+
+

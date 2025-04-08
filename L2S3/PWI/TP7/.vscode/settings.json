@@ -1,0 +1,4 @@
+{
+	"livePreview.serverRoot": "public/testApi",
+	"livePreview.defaultPreviewPath": "public/testApi"
+}

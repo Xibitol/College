@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Contact - Les Sports Inconnus</title>
+
+    <!-- Intégration de polices de caractères prélevées chez google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?
+		family=Manrope:wght@200;300;400;500;600;700;800&
+		family=Playfair+Display&family=Roboto:wght@300;400&
+		display=swap"
+	>
+
+    <!-- Intégration des différentes feuilles de styles -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/couleurs.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <!-- Balise meta pour faciliter le responsive -->
+    <meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no"
+	>
+
+    <!-- Appel au programme javascript qui gère le menu burger -->
+    <script src="/js/gestion_menu.js" defer></script>
+</head>
+
+<body>
+    <!-- Conteneur pour le bandeau dans lequel il y a le logo et le menu -->
+    <nav class="bandeau-menu">
+		<a class="bandeau-menu__mainPagelink" href="/">
+			<img class="bandeau-menu__logo"
+				src="/images/logo-no-background.png"
+				alt="LSI's logo."
+			>
+		</a>
+
+		<ul class="menu-principal">
+			<li class="menu-principal__item">
+				<a class="menu-principal__link" href="/">accueil</a>
+			</li>
+			<li class="menu-principal__item">
+				<a class="menu-principal__link" href="/community">communauté</a>
+			</li>
+			<li class="menu-principal__item menu-principal__item--current">
+				<a class="menu-principal__link" href="/contact">contact</a>
+			</li>
+		</ul>
+
+		<img class="dropdownMenu__icon"
+			src="/images/icon-burger.webp"
+			alt="Icon du menu déroulant."
+		>
+    </nav>
+    <!-- Entête de la page-->
+    <header class="entete-principal">
+        <h1 class="entete-principal__titre-1">Les sports inconnus</h1>
+    </header>
+
+    <!-- *********  Main  ********** -->
+    <main class="contenu-principal">
+		<h2 class="contenu-principal__title">Contact</h2>
+
+		<section class="coordinates">
+			<h3 class="coordinates__title">Nos coordonnées</h3>
+			<ul class="coordinates__list">
+				<li class="coordinates__item">
+					<p><a href="mailto:contact@voyages-sereins.fr">
+						contact@voyages-sereins.fr
+					</a></p>
+				</li>
+				<li class="coordinates__item"><p>06.XX.XX.55.23</p></li>
+				<li class="coordinates__item"><p>
+					101 Rue des Mimolettes, Nataloup, 58230
+					Montsauche-les-Settons
+				</p></li>
+			</ul>
+		</section>
+
+		<section class="map">
+			<h3 class="map__title">Plan d'accès</h3>
+			<iframe class="map__integratedMap"
+				src="https://www.google.com/maps/embed?
+					pb=!1m18!1m12!1m3!1d10836.467530494905!2d4.030155280317836!3d47.23385955850126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f1f816d2b14fb3%3A0x2609ce35b1c496e1!2sNataloup%2C%2058230%20Montsauche-les-Settons!5e0!3m2!1sen!2sfr!4v1711127506467!5m2!1sen!2sfr
+				"
+				allowfullscreen="" loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"
+			></iframe>
+		</section>
+
+		<section class="contact">
+			<h3 class="contact__title">Ecrivez-nous</h3>
+			<form class="contact__form" action="#" method="POST">
+				<div class="contact__inputContainer">
+					<label class="contact__label" for="email">E-mail :</label>
+					<input id="email" type="email" name="email"
+						placeholder="jeanmiche33@ptitmail.ul"
+					>
+				</div>
+
+				<div class="contact__inputContainer">
+					<label class="contact__label" for="message">
+						Message :
+					</label>
+					<textarea id="message" class="contact__textarea"
+						name="message" rows="4"
+						placeholder="Je voulais vous dire que..."
+					></textarea>
+				</div>
+
+				<input type="submit" value="Envoyer">
+			</form>
+		</section>
+    </main>
+
+    <!-- *********  Footer de la page  ********** -->
+    <footer class="footer-principal">
+        <p>
+			Les Sports Inconnus &copy; 2023
+		</p>
+        <p>
+			Site web intégré par
+			<a class="pimousdev" href="https://github.com/PimousDev">Pimous
+			Dev.</a>.
+		</p>
+    </footer>
+
+</body>
+
+</html>

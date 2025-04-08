@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run java code with the current JDK",
+			"type": "shell",
+			"command": ". bin/run.sh AppTest",
+			"problemMatcher": [],
+			"presentation": {
+				"showReuseMessage": false
+			}
+		},
+		{
+			"label": "Generate javadoc",
+			"type": "shell",
+			"command": "javadoc -d doc/ src/*",
+			"problemMatcher": [],
+			"presentation": {
+				"reveal": "silent",
+				"clear": true,
+				"showReuseMessage": false
+			}
+		}
+	]
+}

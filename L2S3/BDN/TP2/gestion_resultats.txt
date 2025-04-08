@@ -1,0 +1,132 @@
+==== QUESTION 1 ===== 
+reference  |                    designation
+-----------+----------------------------------------------------
+ DT205     | Bruleur Huger
+ DT310     | bruleur soc
+ DT802     | Boite controle
+ DT711     | cellule
+ DT120     | Connecteur
+ DT121     | Connecteur1
+ DT122     | Connecteur2
+
+==== QUESTION 2 =====
+ nointerv | dateinterv | temps
+----------+------------+-------
+     1046 | 2019-07-10 |     1
+     1047 | 2019-07-11 |     2
+
+==== QUESTION 3 =====
+                    designation
+----------------------------------------------------
+ Bruleur Huger
+ bruleur soc
+
+==== QUESTION 4 =====
+ reference |                    designation
+-----------+----------------------------------------------------
+ DT711     | cellule
+ DT121     | Connecteur1
+
+==== QUESTION 5 =====
+ nointerv | dateinterv
+----------+------------
+     1045 | 2019-07-08
+     1046 | 2019-07-10
+     1047 | 2019-07-11
+
+
+==== QUESTION 6 =====
+ nofacture
+-----------
+       1001
+       1003
+       1006
+       1010
+
+==== QUESTION 7 =====
+nom
+----------
+Dallalon
+Favero
+Provent
+Rivoire
+
+==== QUESTION 8 =====
+noclient
+----------
+102
+105
+104
+
+==== QUESTION 9 =====
+nomresponsable
+--------------
+Foucher
+Mauras
+
+==== QUESTION 10 =====
+nointerv
+----------
+1043
+1044
+1046
+1050
+
+==== QUESTION 11 =====
+                    designation
+----------------------------------------------------
+ Bloc Huger
+ Boite controle
+ cellule
+
+==== QUESTION 12 =====
+reference
+----------
+DT010
+DT120
+DT125
+DT180
+DT205
+DT310
+DT711
+DT711
+DT802
+
+==== QUESTION 13 =====
+nom
+----------
+Dallalon
+Rivoire
+
+==== QUESTION 14 =====
+reference
+----------
+DT010
+DT015
+DT120
+DT125
+DT180
+DT205
+DT310
+DT711
+DT802
+
+==== QUESTION 15 =====
+designation
+--------------------------------------------------
+Connecteur
+bruleur soc
+cellule
+
+==== QUESTION 16 =====
+ datefacture
+-------------
+ 2019-07-08
+ 2019-07-29
+
+==== QUESTION 17 =====
+                    designation
+----------------------------------------------------
+ Connecteur
+ cellule
+

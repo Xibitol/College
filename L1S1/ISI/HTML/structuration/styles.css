@@ -1,0 +1,24 @@
+body{
+	background-color: green;
+}
+
+body > header > h1{
+	color: white;
+	text-align: center;
+	background-color: purple;
+	border: dashed 2px white;
+}
+
+body > header > h2{
+	color: brown;
+	font-size: 1.7em;
+	text-align: right;
+	background-color: black;
+}
+
+article > header > h2{
+	color: transparent;
+	font-family: Georgia;
+	font-style: italic;
+	text-shadow: 0 0 5px pink;
+}

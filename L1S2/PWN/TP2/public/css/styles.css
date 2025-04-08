@@ -1,0 +1,137 @@
+/* =============================================================================
+	Base pages styles.
+============================================================================= */
+
+/**** Conteneur du logo et du menu ****/
+.bandeau-menu{
+	position: sticky;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	top: 0px;
+	left: 0px;
+	/* Here, we don't want to resize our header when the font size change. So,
+		an height of 9rem doesn't make sense. */
+	height: 64px;
+	padding: 16px 32px;
+
+	background-color: var(--coul-accent);
+}
+.bandeau-menu *{
+	color: var(--coul-neutre-claire)
+}
+.bandeau-menu__mainPagelink, .bandeau-menu__logo, .dropdownMenu__icon{
+	height: 100%;
+}
+
+.menu-principal{
+	display: none;
+}
+
+
+/**** Entête principal ****/
+.entete-principal{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: calc(100vh - 64px);
+	padding-bottom: 64px;
+
+	background-image: url("/images/grass.jpg");
+	background-position: center bottom;
+	background-size: cover;
+}
+.entete-principal__titre-1{
+	width: 90%;
+	max-width: 1200px;
+	padding: 32px;
+
+	color: var(--coul-neutre-claire);
+	font-family: "Manrope", sans-serif;
+	text-transform: capitalize;
+	text-align: center;
+	background-color: var(--coul-neutre-foncee-transparente);
+}
+
+
+/**** Main ****/
+.contenu-principal{
+	padding-top: 32px;
+}
+.contenu-principal__title{
+	text-align: center;
+}
+.contenu-principal__intro{
+	padding: 0 32px 32px;
+}
+
+/* Home */
+.sport{
+	padding: 32px;
+}
+.sport:nth-child(2n + 1){
+	background-color: var(--coul-neutre-medium);
+}
+.sport > *+*{
+	margin-top: 1.5rem;
+}
+.sport__subtitle{
+	font-style: italic;
+}
+.sport__illustration{
+	display: block;
+
+	margin-inline: auto;
+	height: calc(100vw*16/9);
+	max-height: 20rem;
+
+	object-position: center;
+	object-fit: cover;
+}
+
+/* Contact */
+.coordinates, .map, .contact{
+	margin: 0 32px 32px;
+}
+.coordinates__title, .map__title, .contact__title{
+	padding-bottom: 1rem;
+}
+
+.coordinates__list{
+	padding-left: 32px;
+
+	list-style: initial;
+}
+.coordinates__item *{
+	padding-block: 0.5rem;
+}
+
+.map__integratedMap{
+	aspect-ratio: 2/1;
+	width: 100%;
+}
+
+.contact__inputContainer{
+	padding-bottom: 8px;
+}
+.contact__inputContainer > *{
+	display: block;
+}
+.contact__label{
+	line-height: 3rem;
+}
+.contact__textarea{
+	width: 100%;
+	max-width: 512px;
+	height: 128px;
+}
+
+/**** Footer principal ****/
+.footer-principal{
+	padding: 16px 5%;
+}
+.footer-principal *{
+	text-align: center;
+}

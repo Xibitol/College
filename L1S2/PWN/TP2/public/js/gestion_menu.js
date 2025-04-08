@@ -1,0 +1,1 @@
+console.log("Exécution du programme de gestion du menu");

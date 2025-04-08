@@ -1,0 +1,20 @@
+.galerie__titre {
+    font-size: 3rem;
+    padding: 2rem 0;
+    color: #EEE;
+}
+
+.galerie__focus {
+    margin-bottom: 1rem;
+}
+
+.galerie__grande-image {
+    width: 100%;
+}
+
+.galerie__legende-grande-image {
+    min-height: 3.5rem;
+    padding: 0.5rem 0 1rem 0;
+    font-size: 1.5rem;
+    color: #AAA;
+}

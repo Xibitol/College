@@ -1,0 +1,26 @@
+.set-of-chips {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+.chip {
+    background-color: #7E49C6;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    border: 5px transparent solid;
+    border-color: transparent;
+    &:hover {
+        background-color: #6A1FFB;
+    }
+    &:active {
+        background-color: hsl(260, 96%, 70%);
+    }
+}
+
+.chip--actif {
+    border-color: #FEACFD;
+}

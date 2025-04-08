@@ -1,0 +1,12 @@
+.vignettes {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.vignette {
+    width: 4.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}

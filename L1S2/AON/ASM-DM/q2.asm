@@ -1,0 +1,5 @@
+CLO
+MOV BL, 10
+MOV AL, 71
+ADD AL, BL
+END

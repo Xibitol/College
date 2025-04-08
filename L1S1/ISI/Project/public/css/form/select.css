@@ -1,0 +1,24 @@
+@import url(/css/form/input.css);
+
+div.inputWrapper select{
+	position: relative;
+
+	padding-right: calc(var(--space-small)*2);
+
+	appearance: none;
+	cursor: pointer;
+}
+/* FIXME: Display icon only for select elements */
+div.inputWrapper:has(select)::after{
+	content: "expand_more";
+	position: absolute;
+
+	top: 50%;
+	right: calc(var(--space-small) + var(--space-border));
+
+	font-family: "Material Symbols Outlined";
+	font-size: 1.5rem;
+	cursor: pointer;
+
+	transform: translateX(50%) translateY(-50%);
+}

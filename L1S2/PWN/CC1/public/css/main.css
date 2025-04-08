@@ -1,0 +1,53 @@
+@import url("/css/reset.css");
+
+:root{
+	--color-backgroundVariant: #DDD;
+	--color-onBackground: #333;
+
+	--space-tiny: 8px;
+	--space-small: 16px;
+	--space-medium: 32px;
+	--space-large: 64px;
+
+	--font-coef: 1.5;
+}
+
+*, *:before, *:after{	
+	color: var(--color-onBackground);
+	font-family: Helvetica, sans-serif !important;
+	text-align: center;
+
+    box-sizing: border-box;
+}
+
+/* Containers */
+body{
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+
+	height: 100dvh;
+}
+body > *{
+	width: 100%;
+}
+
+/* Font sizes */
+h1{ font-size: calc(1.75rem*var(--font-coef)); }
+h2{ font-size: calc(1rem*var(--font-coef)); }
+h3{ font-size: calc(2.5rem*var(--font-coef)); }
+p{ font-size: calc(1.25rem*var(--font-coef)); }
+a{ font-size: calc(1rem*var(--font-coef)); }
+
+/* Text elements */
+h1, h2{
+	font-weight: bold;
+}
+h1{
+	margin-bottom: 1rem;
+
+	line-height: calc(2rem*var(--font-coef) + 1rem);
+}
+a{
+	text-decoration: none;
+}

@@ -1,0 +1,187 @@
+/* Regles generales */
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+body {
+
+    font-size: 1.4rem;            /* 14px par défaut */
+    /*font-family: 'Noto sans', sans-serif;*/
+}
+
+a, a:hover, a:visited{
+    color: #000;
+    text-decoration: none;
+}
+img{
+    max-width:100%;
+    height: auto;
+}
+
+.wrap{
+    width: 960px;
+    margin: 0 auto;
+}
+
+header{
+    background-color: blue;
+    color:#FFF;
+}
+
+
+footer{
+    background-color: blue;
+    padding: 2rem;
+}
+
+header div{
+    display: flex;
+    align-items: center;
+}
+
+header a, header a:hover,header a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+
+header h1{
+    font-size: 5rem;
+    padding-right: 10rem;
+    text-transform: uppercase;
+}
+
+
+header ul {
+    display: flex;
+    font-size: 3rem;
+}
+
+header ul li {
+    padding-right: 3rem;
+}
+
+/****************/
+/* section     */
+/**************/
+.typeCours{
+    background: #555;
+}
+
+.typeCours ul{
+    display: flex;
+    justify-content: space-around;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.home article{
+    clear: both;
+
+}
+
+
+
+.home article:nth-of-type(2n) {
+    background: #e8e8e8;
+
+}
+
+.content {
+    display: flex;
+}
+
+
+.home h2{
+    padding: 2rem;
+
+    font-size: 2.6rem;
+    text-transform: uppercase;
+}
+
+.home p{
+    font-size: 1.4rem;
+    line-height: 2;
+      padding: 2rem;
+}
+
+img{
+    width:275px;
+}
+
+
+.planning{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.planning section{
+    outline:1px solid red;
+    margin: 1%;
+    padding: 1%;
+    min-width: 20vw;
+
+}
+
+
+.planning h2{
+    text-transform: uppercase;
+    font-size: 2rem;
+    color:#e62569;
+    padding: 2rem 0;
+}
+
+.gris{
+    background: #666;
+    color:#fff;
+}
+
+.noir{
+    background: #000;
+    color:#fff;
+}
+
+.reservation{
+    background:#e62569;
+    padding: 2%;
+    float: right;
+
+}
+
+.reservation a{
+    color:#fff;
+}
+
+main{
+    margin-top: 5vh;
+}
+
+main h2{
+    font-size: 4rem;
+}
+
+form p{
+    margin: 5vh 0;
+}
+
+.info{
+    background-color: #e62569;
+    color:#fff;
+    font-size: 3rem;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.pub{
+    background-color: #e62569;
+    color:#fff;
+    font-size: 8rem;
+    position: absolute;
+    padding: 10rem;
+    top : 25vh;
+    left:25vw;
+    width:50vw;
+}
+

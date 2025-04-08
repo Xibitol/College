@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sports Inconnus</title>
+    <!-- Intégration de polices de caractères prélevées chez google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Playfair+Display&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Intégration des différentes feuilles de styles -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/couleurs.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Balise meta pour faciliter le responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Appel au programme javascript qui gère le menu burger -->
+    <script src="js/gestion_menu.js" defer></script>
+</head>
+
+<body>
+    <nav class="bandeau-menu">
+        <a href="index.html"><img class="menu-principal__logo" src="images/logo-no-background.png" alt=""></a>
+        <ul class="menu-principal menu-principal--masque">
+            <li class="menu-principal__header">
+                <img src="images/icon-croix.webp" alt="" class="menu-principal__icone-fermer">
+            </li>
+            <li class="menu-principal__element-de-liste"><a href="index.html" class="menu-principal__lien menu-principal__lien--actif">Accueil</a></li>
+            <li class="menu-principal__element-de-liste"><a href="" class="menu-principal__lien">Communauté</a></li>
+            <li class="menu-principal__element-de-liste"><a href="contact.html" class="menu-principal__lien">Contact</a></li>
+        </ul>
+        <img src="images/icon-burger.webp" alt="" class="menu-principal__icone-burger">
+    </nav>
+
+    <header class="entete-principal">
+        <h1 class="entete-principal__titre-1">Les sports inconnus</h1>
+    </header>
+    <!-- *********  Main  ********** -->
+
+    <main class="contenu-principal">
+        <h2 class="contenu-principal__titre">Contact</h2>
+
+        <section class="coordonnees">
+            <h2 class="contenu-principal__titre-2">Nos coordonnées</h2>
+            <ul class="coordonnees__liste">
+                <li class="coordonnees__element-de-liste">contact@voyages-sereins.fr</li>
+                <li class="coordonnees__element-de-liste">06.XX.55.23</li>
+                <li class="coordonnees__element-de-liste">40, av. des Plages 44000 Nantes</li>
+            </ul>
+        </section>
+        <section class="carte">
+            <h2 class="contenu-principal__titre-2">Plan d'accès</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2786.9246252199655!2d-0.33159208481027214!3d45.69248462620338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4800f36b09a7e3bb%3A0xd0aae045b13c6590!2sTransatco+Voyages!5e0!3m2!1sfr!2sfr!4v1547655608775"
+                frameborder="0" style="border:0" allowfullscreen></iframe>
+
+        </section>
+        <section class="section-formulaire">
+            <h2 class="contenu-principal__titre-2">Ecrivez-nous</h2>
+
+            <form class="section-formulaire__form" action="">
+                <label for="email">e-mail</label><input type="email" name="email" id="email">
+
+                <label for="message">Message</label><textarea name="message" id="message" cols="30" rows="7"></textarea>
+
+                <button>Envoyer</button>
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- *********  Footer  ********** -->
+
+    <footer class="footer-principal">
+        <p>Les Sports Inconnus - 2024</p>
+    </footer>
+
+</body>
+
+</html>

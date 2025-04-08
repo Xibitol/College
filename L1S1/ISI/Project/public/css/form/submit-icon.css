@@ -1,0 +1,25 @@
+input[type="submit"]{
+	height: 100%;
+	aspect-ratio: 1 / 1;
+	padding: var(--space-tiny);
+
+	color: var(--color-onPrimaryContainer);
+	font-family: "Material Symbols Outlined";
+	font-size: 1.25rem;
+	line-height: 1.25rem;
+	background-color: var(--color-primaryContainer);
+	border: none;
+	border-radius: var(--space);
+
+	transition: all .2s;
+}
+
+input[type="submit"]:hover:not(:active){
+	opacity: .5;
+}
+input[type="submit"]:active{
+	color: var(--color-onPrimary);
+	background-color: var(--color-primary);
+
+	transition: none;
+}

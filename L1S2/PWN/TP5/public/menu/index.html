@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sports Inconnus</title>
+    <!-- Intégration de polices de caractères prélevées chez google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Playfair+Display&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Intégration des différentes feuilles de styles -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/couleurs.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Balise meta pour faciliter le responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Appel au programme javascript qui gère le menu burger -->
+    <script src="js/gestion_menu.js" defer></script>
+</head>
+
+<body>
+    <nav class="bandeau-menu">
+        <a href="index.html"><img class="menu-principal__logo" src="images/logo-no-background.png" alt=""></a>
+        <ul class="menu-principal menu-principal--masque">
+            <li class="menu-principal__header">
+                <img src="images/icon-croix.webp" alt="" class="menu-principal__icone-fermer fermeture-menu">
+            </li>
+            <li class="menu-principal__element-de-liste"><a href="#" class="menu-principal__lien menu-principal__lien--actif">Accueil</a></li>
+            <li class="menu-principal__element-de-liste"><a href="" class="menu-principal__lien">Communauté</a></li>
+            <li class="menu-principal__element-de-liste"><a href="contact.html" class="menu-principal__lien">Contact</a></li>
+        </ul>
+        <img src="images/icon-burger.webp" alt="" class="menu-principal__icone-burger ouverture-menu">
+    </nav>
+
+    <header class="entete-principal">
+        <h1 class="entete-principal__titre-1">Les sports inconnus</h1>
+    </header>
+    <!-- *********  Main  ********** -->
+
+    <main class="contenu-principal">
+        <h2 class="contenu-principal__titre">Accueil</h2>
+        <section class="contenu-principal__textes">
+            <p class="contenu-principal__texte">L'inventivité humaine est sans limite, en particulier en ce qui concerne les <strong>divertissements</strong> et le <strong>jeu</strong>.</p>
+            <p class="contenu-principal__texte">Il existe une multitude de sports, chaque jour voit émerger une nouvelle discipline issue de l'imagination fertile d'adeptes du jeu. Ces nouveautés sont parfois <strong>totalement innovantes</strong>, elles peuvent être le <strong>fruit de l'évolution</strong>                d'une pratique courante, ou encore résulter de la <strong>fusion de plusieurs jeux</strong> existants.</p>
+            <p class="contenu-principal__texte">Voici les <strong>trois sports émergeants</strong> que notre communauté a choisi de vous présenter.</p>
+        </section>
+        <section class="sports">
+            <article class="sport">
+                <header class="sport__titres">
+                    <h3 class="sport__titre">La peteca</h3>
+                    <h4 class="sport__sous-titre">Le sport venu du Brésil</h4>
+                </header>
+
+                <p class="sport__texte">La pétéca, est un sport ancestral brésilien. C’est un mélange de badminton, de volley-ball et de pelote basque. Le jeu consiste à s'échanger à la main la pétéca, sorte de gros volant formé de quatre grandes plumes sur une base en caoutchouc
+                    entre deux joueurs de part et d'autre d'un filet. Plus d'informations sur <a href="">le site de la fédération de peteca.</a></p>
+                <img src="images/peteca.jpg" alt="La peteca" class="sport__image">
+            </article>
+            <article class="sport">
+                <header class="sport__titres">
+                    <h3 class="sport__titre">Le teqball</h3>
+                    <h4 class="sport__sous-titre">Le foot de table</h4>
+                </header>
+
+                <p class="sport__texte">Le teqball est un sport de ballon pratiqué sur une sorte de table de tennis de table arquée, combinant ainsi football et tennis de table. La pratique ressemble au tennis-ballon qui, lui, emprunte les codes du tennis.</p>
+                <img src="images/teqball.jpg" alt="Le teqball" class="sport__image">
+            </article>
+            <article class="sport">
+                <header class="sport__titres">
+                    <h3 class="sport__titre">Le paddle-tennis</h3>
+                    <h4 class="sport__sous-titre">Le tennis facile</h4>
+                </header>
+
+                <p class="sport__texte">Le paddle-tennis est un sport de balle joué avec une raquette solide. Comparé au tennis, le court est plus petit, ne contient qu'un seul couloir au lieu de deux et le filet est également moins haut. Il se joue avec une raquette solide,
+                    des balles de tennis dépressurisées et un service à la cuillère.</p>
+                <img src="images/padle.jpg" alt="Le padle-tennis" class="sport__image">
+            </article>
+        </section>
+
+    </main>
+
+
+    <!-- *********  Footer  ********** -->
+
+    <footer class="footer-principal">
+        <p>Les Sports Inconnus - 2024</p>
+    </footer>
+
+</body>
+
+</html>

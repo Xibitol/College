@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"stdlib.h": "c",
+		"stdio.h": "c",
+		"cmath": "c",
+		"arithmetic.h": "c",
+		"assert.h": "c",
+		"fraction.h": "c",
+		"string.h": "c",
+		"cstdlib": "c"
+	}
+}

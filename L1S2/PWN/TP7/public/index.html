@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>TP JS</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/look.css">
+    <link rel="stylesheet" href="css/personnage.css">
+
+	<script src="/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>TP Javascript</h1>
+        <h2>Jeu des suspects</h2>
+    </header>
+
+    <main>
+        <article id="jeuReel">
+            <h3>L'intrigue</h3>
+            <p>Au cours d'une réception dans le très huppé château des Milandes, un sceptre exposé dans le hall de réception a été dérobé.</p>
+            <p>Vous disposez de la liste des invités présents ce soir-là, et un informateur délivre des indices au goûte à goûte.</p>
+            <p>Saurez-vous résoudre cette énigme et démasquer le voleur ?</p>
+            <!-- Remarquez que le bouton qui suit possède les classes "bouton" et "donnerIndice".
+                La classe "bouton" permet la mise en forme par la feuille de styles.
+                La classe "donnerIndice" indique la fonction du bouton, en javascript,
+                on va donc sélectionner ce bouton en utilisant la classe "donnerIndice"
+            -->
+
+            <span class="bouton donnerIndice">Recueillir un indice</span>
+            <span class="bouton recommencer">Recommencer</span>
+            <ul id="indices">
+                <li class="indice">Le voleur n'a pas de problème de hanche</li>
+                <li class="indice invisible">Aucun myope n'a trempé dans le coup</li>
+                <li class="indice">Le coupable n'a jamais chanté pour la finale du Super Ball</li>
+            </ul>
+
+            <h4 class="titre-variable">Les <span id="nbSuspects"></span> suspects</h4>
+            <section class="personnages">
+                <figure class="personnage" data-id="85">
+                    <img class="personnage__image" src="images/chaplin.png" alt="">
+                    <figcaption class="personnage__nom">Charly Chaplin</figcaption>
+                </figure>
+                <figure class="personnage coupable" data-id="92">
+                    <img class="personnage__image" src="images/cooper.png" alt="">
+                    <figcaption class="personnage__nom">Sheldon Cooper</figcaption>
+                </figure>
+                <figure class="personnage" data-id="28">
+                    <img class="personnage__image" src="images/jobs.png" alt="">
+                    <figcaption class="personnage__nom">Steeve Jobs</figcaption>
+                </figure>
+                <figure class="personnage" data-id="13">
+                    <img src="images/perry.png" alt="">
+                    <figcaption class="personnage__nom">Katy Perry</figcaption>
+                </figure>
+            </section>
+
+			<p id="endGameText"></p>
+        </article>
+    </main>
+    <aside id="infos">
+
+    </aside>
+    <footer>Université de La Rochelle</footer>
+</body>
+
+</html>

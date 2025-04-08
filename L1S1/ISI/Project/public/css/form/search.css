@@ -1,0 +1,24 @@
+@import url(/css/form/input.css);
+@import url(/css/form/select.css);
+
+div.inputWrapper.search{
+	color: var(--color-onPrimaryContainer);
+	background-color: var(--color-primaryContainer);
+	border-radius: var(--space);
+}
+div.inputWrapper.search input, div.inputWrapper.search select{
+	border-color: var(--color-primaryContainer);
+}
+div.inputWrapper.search label{
+	color: rgb(var(--color-onPrimaryContainer-rgb) / .65);
+}
+div.inputWrapper.search input:not(:placeholder-shown) + label,
+div.inputWrapper.search input:focus + label,
+div.inputWrapper.search select + label{
+	display: none;
+}
+
+/* Hovering */
+div.inputWrapper:hover input + label{
+	color: rgb(var(--color-onPrimaryContainer-rgb) / .65);
+}

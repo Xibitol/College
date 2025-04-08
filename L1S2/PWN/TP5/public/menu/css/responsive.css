@@ -1,0 +1,47 @@
+@media screen and (width>=60rem) {
+    /* Ici, placez les mises en forme à effectuer*/
+    /* par exemple*/
+    .entete-principal {
+        min-height: auto;
+        padding-block: 6rem;
+        line-height: 1.4;
+    }
+    .entete-principal__titre-1 {
+        margin: auto;
+        text-align: center;
+    }
+    .sports {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-around;
+    }
+    .sport {
+        padding: 2rem;
+        flex-basis: 30%;
+        display: flex;
+        flex-direction: column;
+    }
+    .sport:nth-of-type(2n+1) {
+        background-color: var(--coul-neutre-claire);
+    }
+    .sport__texte {
+        flex-grow: 1;
+    }
+    /**** Menu *********/
+    .menu-principal {
+        display: flex;
+        gap: 2rem;
+        position: static;
+        align-items: center;
+        background: none;
+    }
+    .menu-principal__header {
+        display: none;
+    }
+    .menu-principal__lien {
+        margin-bottom: 0;
+    }
+    .menu-principal__icone-burger {
+        display: none;
+    }
+}

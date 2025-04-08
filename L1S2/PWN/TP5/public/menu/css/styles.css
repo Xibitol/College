@@ -1,0 +1,213 @@
+   /*** mises en forme de base **/
+   
+   html {
+       background-color: var(--coul-neutre-foncee);
+   }
+   
+   strong {
+       color: var( --coul-accent);
+   }
+   
+   body {
+       font-family: roboto, 'Gill Sans', Calibri, sans-serif;
+       max-width: 1200px;
+       margin-inline: auto;
+       position: relative;
+   }
+   
+   .menu-principal {
+       text-transform: uppercase;
+       position: absolute;
+       top: 2rem;
+       right: 2rem;
+       z-index: 10;
+       padding-inline: 1rem;
+       background-color: var(--coul-accent-transparent);
+       color: var(--coul-neutre-claire);
+       transition: right ease-in-out 0.5s;
+       border-radius: 5px;
+   }
+   
+   .menu-principal--masque {
+       right: -100vh;
+   }
+   
+   .menu-principal__header {
+       text-align: right;
+       padding-block: 1rem;
+   }
+   
+   .menu-principal__icone-fermer {
+       text-align: right;
+       width: 3rem;
+       font-family: monospace;
+       cursor: pointer;
+       padding: 0.5rem;
+   }
+   
+   .menu-principal__lien {
+       transition: 0.3s;
+       text-decoration: none;
+       color: currentColor;
+       text-align: center;
+       display: block;
+       border: 1px solid;
+       font-weight: bold;
+       font-size: 3rem;
+       padding: 1rem;
+       margin-bottom: 0.5em;
+       padding-inline: 1em;
+   }
+   
+   .menu-principal__lien:hover,
+   .menu-principal__lien--actif,
+   .menu-principal__lien:focus {
+       background-color: var(--coul-accent-foncee);
+   }
+   /*** Menu ***/
+   
+   .bandeau-menu {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       color: var(--coul-neutre-claire);
+       position: sticky;
+       padding-inline: 2rem;
+       top: 0;
+       left: 0;
+       background-color: var(--coul-accent-transparent);
+       min-height: 9rem;
+       box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+   }
+   
+   .menu-principal__logo {
+       height: 5rem;
+   }
+   
+   .menu-principal__icone-burger {
+       /* height: 5px;*/
+       width: 5rem;
+       background-color: transparent cursor: pointer;
+   }
+   /**** Header ****/
+   
+   .entete-principal {
+       color: var(--coul-neutre-claire);
+       min-height: calc(100vh - 9rem);
+       /* Pour les navigateurs qui ne prennent pas en charge svh */
+       /* 9rem pour la hauteur minimale du nav */
+       min-height: calc(100svh - 9rem);
+       /* On écrase la mise en forme précédente pour les navigateurs qui prennent en charge svh */
+       padding-inline: 2vh;
+       background: url(../images/grass.jpg) left 50% no-repeat;
+       background-size: cover;
+       padding: 8rem 2rem 2rem 2rem;
+   }
+   
+   .entete-principal__titre-1 {
+       font-family: 'Manrope', roboto, sans-serif;
+       font-weight: 600;
+       font-size: 6rem;
+       padding: 0.5em;
+       margin-bottom: 8rem;
+       max-width: 15em;
+       line-height: 1.2;
+       background-color: var(--coul-neutre-foncee-transparente);
+       text-transform: capitalize;
+   }
+   /**** main ***********/
+   
+   h2,
+   h3 {
+       font-family: calibri, sans-serif;
+   }
+   
+   .contenu-principal {
+       color: var(--coul-base-foncee);
+       background-color: var(--coul-neutre-claire);
+       font-size: 2rem;
+   }
+   
+   .contenu-principal__titre {
+       font-size: 5rem;
+       font-weight: bold;
+       text-align: center;
+       padding-top: 0.5em;
+   }
+   
+   .contenu-principal__titre-2 {
+       font-size: 3rem;
+       font-weight: bold;
+       margin-bottom: 1rem;
+   }
+   
+   .contenu-principal__textes {
+       padding: 1.5rem;
+       padding-inline: 5vw;
+   }
+   
+   .contenu-principal__texte {
+       margin-bottom: 0.5em;
+       line-height: 1.3;
+       text-align: justify;
+   }
+   /*** Présentations des sports ********/
+   /*** La section sports ****/
+   
+   .sports {
+       padding-top: 0.5em;
+   }
+   /** Présentation d'un sport *********/
+   
+   .sport {
+       padding: 5vw;
+       background-color: var(--coul-neutre-claire);
+       text-align: justify;
+   }
+   
+   .sport:nth-of-type(2n+1) {
+       background-color: var(--coul-neutre-medium);
+   }
+   
+   .sport--relief {
+       /*  background-color: #eee;*/
+   }
+   
+   .sport__titres {
+       margin-bottom: 1.6rem;
+   }
+   
+   .sport__titre {
+       font-size: 4rem;
+       font-weight: bold;
+       margin-bottom: 0.1em;
+   }
+   
+   .sport__sous-titre {
+       font-style: italic;
+   }
+   
+   .sport__texte {
+       line-height: 1.5;
+       margin-bottom: 1em;
+   }
+   
+   .sport__texte a {
+       color: currentColor;
+   }
+   
+   .sport__image {
+       width: 100%;
+       height: calc(100vw*9/16);
+       max-height: 20rem;
+       object-fit: cover;
+   }
+   /****** Footer *******/
+   
+   .footer-principal {
+       color: var(--coul-neutre-foncee);
+       background-color: var(--coul-neutre-claire);
+       text-align: center;
+       font-size: 2rem;
+       padding-block: 2rem;
+   }

@@ -1,0 +1,19 @@
+/*** Règles générales  ***/
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+strong {
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+}

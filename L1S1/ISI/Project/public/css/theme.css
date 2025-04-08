@@ -1,0 +1,87 @@
+:root{
+	/* Primary */
+	--color-primary: #006b5b;
+	--color-onPrimary: #ffffff;
+	--color-primaryContainer: #78f8dd;
+	--color-onPrimaryContainer: #00201a;
+	--color-onPrimaryContainer-rgb: 0 31 25;
+
+	/* Secondary */
+	--color-secondary: #4a635d;
+	--color-onSecondary: #ffffff;
+	--color-secondaryContainer: #cde8e0;
+	--color-onSecondaryContainer: #06201b;
+
+	/* Tertiary */
+	--color-tertiary: #436278;
+	--color-onTertiary: #ffffff;
+	--color-tertiaryContainer: #c8e6ff;
+	--color-tertiaryContainer-rgb: 199 230 255;
+	--color-onTertiaryContainer: #001e2f;
+
+	/* Error */
+	--color-error: #ba1a1a;
+	--color-onError: #ffffff;
+	--color-errorContainer: #ffdad6;
+	--color-onErrorContainer: #410002;
+
+	/* Background */
+	--color-background: #fafdfa;
+	--color-onBackground: #191c1b;
+
+	/* Surface */
+	--color-surface: #fafdfa;
+	--color-onSurface: #191c1b;
+	--color-surfaceVariant: #dbe5e0;
+	--color-surfaceVariant-rgb: 219 230 224;
+	--color-onSurfaceVariant: #3f4946;
+
+	/* Outline */
+	--color-outline: #6f7976;
+	--color-outline-rgb: 110 119 117;
+}
+
+@media (prefers-color-scheme: dark){
+	:root{
+		/* Primary */
+		--color-primary: #59dbc1;
+		--color-onPrimary: #00382f;
+		--color-primaryContainer: #005144;
+		--color-onPrimaryContainer: #78f8dd;
+		--color-onPrimaryContainer-rgb: 119 248 220;
+	
+		/* Secondary */
+		--color-secondary: #b1ccc4;
+		--color-onSecondary: #1d352f;
+		--color-secondaryContainer: #334b45;
+		--color-onSecondaryContainer: #cde8e0;
+	
+		/* Tertiary */
+		--color-tertiary: #abcae4;
+		--color-onTertiary: #113348;
+		--color-tertiaryContainer: #2b4a5f;
+		--color-tertiaryContainer-rgb: 43 74 95;
+		--color-onTertiaryContainer: #c8e6ff;
+	
+		/* Error */
+		--color-error: #ffb4ab;
+		--color-onError: #690005;
+		--color-errorContainer: #93000a;
+		--color-onErrorContainer: #ffdad6;
+	
+		/* Background */
+		--color-background: #191c1b;
+		--color-onBackground: #e0e3e1;
+	
+		/* Surface */
+		--color-surface: #191c1b;
+		--color-onSurface: #e0e3e1;
+		--color-surfaceVariant: #3f4946;
+		--color-surfaceVariant-rgb: 64 74 71;
+		--color-onSurfaceVariant: #bec9c5;
+	
+		/* Outline */
+		--color-outline: #89938f;
+		--color-outline-rgb: 138 148 145;
+	}
+}

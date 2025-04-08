@@ -1,0 +1,46 @@
+body {
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+strong {
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    background-color: #708A96;
+    color: #fff;
+    font-family: arial;
+}
+
+
+/*** header-principal ****/
+
+.header-principal {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+
+/*** contenu-principal ***/
+
+
+/*** footer-principal ****/
+
+.footer-principal {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    z-index: -1;
+}

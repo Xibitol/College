@@ -1,0 +1,21 @@
+@import url("/style/main.css");
+
+/* SPORT ARTICLES */
+.sport__container{
+	display: flex;
+	flex-flow: column;
+	margin-top: 16px;
+	width: 100%;
+	gap: 16px;
+}
+.sport--odd{
+	background-color: #EEE;
+}
+.sport__illustration{
+	display: block;
+
+	width: 100%;
+
+	border: #222 solid 2px;
+	object-fit: cover;
+}

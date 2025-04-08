@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Copy back to ./out/ created files and dirs",
+			"type": "shell",
+			"command": "source ./bin/clean.sh",
+			"problemMatcher": []
+		}
+	]
+}

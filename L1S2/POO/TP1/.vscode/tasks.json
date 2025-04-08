@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run \"denree\"",
+			"type": "shell",
+			"command": ". bin/run.sh denree.AppDenree",
+			"problemMatcher": [],
+			"presentation": {
+				"showReuseMessage": false
+			}
+		},
+		{
+			"label": "Run \"OBNI\"",
+			"type": "shell",
+			"command": ". bin/run.sh obni.AppOBNI",
+			"problemMatcher": [],
+			"presentation": {
+				"showReuseMessage": false
+			}
+		},
+		{
+			"label": "Generate javadoc",
+			"type": "shell",
+			"command": "javadoc -d doc/ src/**/*",
+			"problemMatcher": [],
+			"presentation": {
+				"clear": true,
+				"showReuseMessage": false
+			}
+		}
+	]
+}

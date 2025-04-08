@@ -1,0 +1,51 @@
+.contenu-principal {
+    padding-inline: 2rem;
+}
+
+
+/**** Coordonnées ***/
+
+.coordonnees {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.coordonnees__liste {
+    padding-inline: 2rem;
+}
+
+.coordonnees__element-de-liste {
+    line-height: 1.5;
+}
+
+
+/*** Carte *********/
+
+.carte {
+    padding-bottom: 2rem;
+}
+
+.carte iframe {
+    width: 100%;
+    min-height: 40rem;
+}
+
+
+/*** Formulaire *******/
+
+.section-formulaire {
+    padding-bottom: 2rem;
+}
+
+.section-formulaire label,
+.section-formulaire button {
+    display: block;
+}
+
+.section-formulaire input {
+    margin-bottom: 1rem;
+}
+
+.section-formulaire button {
+    padding: 0.5rem;
+}

@@ -1,0 +1,59 @@
+univ=# EXPLAIN ANALYZE VERBOSE SELECT * FROM villes V WHERE NOT EXISTS(SELECT 1 FROM personnes P WHERE NOT EXISTS (SELECT 1 FROM visites VIS WHERE VIS.pers = P.idpers AND VIS.ville = V.idville));
+                                                          QUERY PLAN                                                          
+------------------------------------------------------------------------------------------------------------------------------
+ Nested Loop Anti Join  (cost=0.00..369211.78 rows=160 width=226) (actual time=24.486..24.502 rows=1 loops=1)
+   Output: v.idville, v.nom, v.emplacement
+   Join Filter: (NOT (hashed SubPlan 2))
+   Rows Removed by Join Filter: 11
+   ->  Seq Scan on public.villes v  (cost=0.00..13.20 rows=320 width=226) (actual time=0.017..0.019 rows=5 loops=1)
+         Output: v.idville, v.nom, v.emplacement
+   ->  Materialize  (cost=0.00..14.20 rows=280 width=32) (actual time=4.622..4.624 rows=3 loops=5)
+         Output: p.idpers
+         ->  Seq Scan on public.personnes p  (cost=0.00..12.80 rows=280 width=32) (actual time=23.097..23.100 rows=5 loops=1)
+               Output: p.idpers
+   SubPlan 2
+     ->  Seq Scan on public.visites vis  (cost=0.00..18.50 rows=850 width=64) (actual time=0.512..0.519 rows=14 loops=1)
+           Output: vis.pers, vis.ville
+ Planning Time: 0.281 ms
+ JIT:
+   Functions: 21
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 1.843 ms, Inlining 0.000 ms, Optimization 1.103 ms, Emission 22.490 ms, Total 25.436 ms
+ Execution Time: 25.991 ms
+(19 rows)
+
+univ=# SELECT * FROM villes V WHERE NOT EXISTS(SELECT 1 FROM personnes P WHERE NOT EXISTS (SELECT 1 FROM visites VIS WHERE VIS.pers = P.idpers AND VIS.ville = V.idville));
+ idville |     nom     |  emplacement  
+---------+-------------+---------------
+ V-0001  | La Rochelle | (46.15,-1.15)
+(1 row)
+
+univ=# EXPLAIN ANALYZE VERBOSE SELECT * FROM villes v WHERE v.idville = ALL(SELECT vis.ville FROM personnes p LEFT OUTER JOIN visites vis ON vis.ville = v.idville AND vis.pers = p.idpers);
+                                                            QUERY PLAN                                                            
+----------------------------------------------------------------------------------------------------------------------------------
+ Seq Scan on public.villes v  (cost=0.00..8163.60 rows=160 width=226) (actual time=0.058..0.123 rows=1 loops=1)
+   Output: v.idville, v.nom, v.emplacement
+   Filter: (SubPlan 1)
+   Rows Removed by Filter: 4
+   SubPlan 1
+     ->  Nested Loop Left Join  (cost=0.00..50.23 rows=280 width=32) (actual time=0.009..0.018 rows=5 loops=5)
+           Output: vis.ville
+           Join Filter: ((vis.pers)::bpchar = (p.idpers)::bpchar)
+           Rows Removed by Join Filter: 11
+           ->  Seq Scan on public.personnes p  (cost=0.00..12.80 rows=280 width=32) (actual time=0.002..0.003 rows=5 loops=5)
+                 Output: p.idpers, p.nom, p.prenom, p.parent
+           ->  Materialize  (cost=0.00..20.64 rows=4 width=64) (actual time=0.001..0.002 rows=3 loops=25)
+                 Output: vis.ville, vis.pers
+                 ->  Seq Scan on public.visites vis  (cost=0.00..20.62 rows=4 width=64) (actual time=0.003..0.005 rows=3 loops=5)
+                       Output: vis.ville, vis.pers
+                       Filter: ((vis.ville)::bpchar = (v.idville)::bpchar)
+                       Rows Removed by Filter: 11
+ Planning Time: 0.278 ms
+ Execution Time: 0.174 ms
+(19 rows)
+
+univ=# SELECT * FROM villes v WHERE v.idville = ALL(SELECT vis.ville FROM personnes p LEFT OUTER JOIN visites vis ON vis.ville = v.idville AND vis.pers = p.idpers);
+ idville |     nom     |  emplacement  
+---------+-------------+---------------
+ V-0001  | La Rochelle | (46.15,-1.15)
+(1 row)

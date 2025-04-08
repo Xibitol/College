@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue&family=Material+Symbols+Outlined);
+@import url(/css/theme.css);
+
+:root{
+	--space-minimal: 4px;
+	--space-tiny: 8px;
+	--space-small: 16px;
+	--space: 32px;
+	--space-large: 128px;
+
+	--space-thinBorder: 1px;
+	--space-border: 2px;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+
+	color: var(--color-onBackground);
+	font-family: "Comic Neue", cursive;
+
+	box-sizing: border-box;
+}
+*::selection{
+	color: var(--color-onSecondaryContainer);
+	background-color: var(--color-secondaryContainer);
+}
+
+html{
+	min-height: 100vh;
+}
+body{
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	min-height: 100vh;
+
+	background-color: var(--color-background);
+
+	overflow-x: hidden;
+}
+main{
+	width: 100%;
+}
+
+h1{ font-size: 8rem; }
+h6{ font-size: .65rem; }
+
+a{
+	color: var(--color-secondary);
+	font-size: 1rem;
+
+	transition: opacity .25s;
+}
+a:hover{
+	opacity: .5;
+}
+h6 a{ font-size: .65rem; }

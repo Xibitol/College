@@ -1,0 +1,9 @@
+clo
+
+MOV AL, 0A
+OUT 02
+
+MOV AL,FD
+OUT 02
+
+END

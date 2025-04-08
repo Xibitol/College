@@ -1,0 +1,74 @@
+/* ---- HEADER ---- */
+.page__header{
+	margin-block: var(--space-medium);
+	padding-inline: var(--space-small);
+}
+
+/* ---- CONTENT ---- */
+.page__content{
+	display: flex;
+	flex-flow: column nowrap;
+
+	margin-bottom: var(--space-medium);
+	padding-inline: var(--space-medium);
+}
+
+.pageNav{
+	margin-bottom: var(--space-small);
+}
+.pageNav__list{
+	display: flex;
+	flex-flow: row nowrap;
+
+	width: 100%;
+	gap: var(--space-small)
+}
+.pageNav__item{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	height: var(--space-large);
+
+	border-radius: var(--space-small);
+	box-shadow: 0 0 6px rgb(31, 31, 31, 0.25);
+}
+.pageNav__link{
+	width: 100%;
+
+	text-transform: capitalize;
+}
+
+.sport{
+	display: flex;
+	flex-flow: row wrap;
+}
+.sport__title{
+	width: 100%;
+	height: min-content;
+	padding: var(--space-tiny);
+
+	border-bottom: 1px solid var(--color-onBackground);
+}
+.sport__licensed{
+	width: 100%;
+	padding: var(--space-small);
+
+	font-size: calc(1.5rem*var(--font-coef));
+}
+.sport__womans, .sport__mens{
+	width: 50%;
+	padding: var(--space-small);
+}
+
+/* ---- FOOTER ---- */
+.page__footer{
+	padding: var(--space-small) 0 var(--space-tiny) var(--space-tiny);
+
+	background-color: var(--color-backgroundVariant);
+}
+.page__footer > .footer__text{
+	font-size: calc(.75rem*var(--font-coef));
+	text-align: start;
+}

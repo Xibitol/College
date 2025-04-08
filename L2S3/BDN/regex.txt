@@ -1,0 +1,51 @@
+(?'day'\d{2})-(?'month'\d{2})-(?'year'\d{4})
+${year}/${month}/${day}
+
+0(\d)-(\d)(\d)-(\d)(\d)-(\d)(\d)-(\d)(\d)
++(33) $1$2$3 $4$5$6 $7$8$9
+
+(?:[0-1]\d|2[0-3]):(?:[0-5]\d)
+
+(?:0|15|30|40)-0|(?:0|30|40)-15|(?:0|15|40)-30|(?:0|15|30)-40|(?:15|30)-all|deuce|40-ad|ad-40|(?:0|15|30|40)-game|game-(?:0|15|30|40)
+
+(?:0[1-9]|[1-2]\d|3[0-1])(?(?<=31)-(?:0[13578]|1[02])|(?:(?(?<=30)-0[13-9]|-0[1-9])|-1[0-2]))-\d{1,4}
+
+input: '000110111001101011'
+blank: ' '
+start state: start
+table:
+  start:
+    0: {R: midzero}
+    1: {R: midone}
+    ' ': {L: succeed}
+  midzero:
+    0: {R: resultzero}
+    1: {R: resultone}
+  midone:
+    0: {R: resultone}
+    1: {R: resultcarryzero}
+  
+  # Carry
+  startcarry:
+    0: {R: midone}
+    1: {R: midcarry}
+  midcarry:
+    0: {R: resultcarryzero}
+    1: {R: resultcarryone} # TODO
+  
+  # Result
+  resultzero:
+    0: {R: start}
+    1: {L: failed}
+  resultone:
+    0: {L: failed}
+    1: {R: start}
+  resultcarryzero:
+    0: {R: startcarry}
+    1: {L: failed}
+  resultcarryone:
+    0: {L: failed}
+    1: {R: startcarry}
+  failed:
+  succeed:
+^(?:000|101|011|(?:110(001|(?:(?:100|010)(?1))|111(?1))))+$

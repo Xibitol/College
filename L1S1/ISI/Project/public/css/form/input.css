@@ -1,0 +1,77 @@
+div.inputWrapper{
+	display: flex;
+	position: relative;
+
+	width: 100%;
+
+	color: var(--color-onBackground);
+	font-size: 1rem;
+	background-color: var(--color-background);
+	border-radius: var(--space-tiny);
+
+	cursor: text;
+	transition-duration: .4s;
+
+}
+div.inputWrapper input, div.inputWrapper select{
+	width: 100%;
+	padding: var(--space-tiny) var(--space-small);
+	
+	color: inherit;
+	font-size: inherit;
+	background-color: inherit;
+	border: var(--space-thinBorder) solid rgb(var(--color-outline-rgb) / .65);
+	border-radius: inherit;
+	outline: none;
+
+	cursor: inherit;
+	transition: border-color;
+	transition-duration: inherit;
+}
+div.inputWrapper label{
+	position: absolute;
+
+	top: calc(var(--space-thinBorder) + var(--space-tiny));
+	left: var(--space-thinBorder);
+	margin-left: calc(var(--space-small) - var(--space-minimal));
+	padding: 0 var(--space-minimal);
+
+	color: rgb(var(--color-outline-rgb) / .75);
+	font-size: inherit;
+	background-color: inherit;
+	border-radius: 10px;
+
+	cursor: inherit;
+	transition-property: top, margin-left, color, font-size, transform;
+	transition-duration: inherit;
+}
+div.inputWrapper input:not(:placeholder-shown) + label,
+div.inputWrapper input:focus + label,
+div.inputWrapper select + label{
+	top: 0;
+	margin-left: var(--space-small);
+	
+	font-size: .9rem;
+
+	transform: translateY(-50%);
+}
+
+/* Hovering */
+div.inputWrapper:hover input{
+	border-color: var(--color-outline);
+}
+div.inputWrapper:hover input + label{
+	color: var(--color-outline-rgb);
+}
+
+/* Focusing */
+div.inputWrapper input:focus{
+	left: var(--space-border);
+	padding: calc(var(--space-tiny) - var(--space-border)/2) calc(var(--space-small) - var(--space-border)/2);
+
+	border-color: var(--color-primary);
+	border-width: var(--space-border);
+}
+div.inputWrapper input:focus + label{
+	color: var(--color-primary);
+}

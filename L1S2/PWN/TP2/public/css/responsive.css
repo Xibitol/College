@@ -1,0 +1,75 @@
+/* =============================================================================
+	Desktop (Mobile larger) styles.
+============================================================================= */
+
+@media screen and (width>=60rem) {
+	:root{
+		--font-coef: 2;
+	}
+
+	/**** Conteneur du logo et du menu ****/
+	.menu-principal{
+		display: flex;
+
+		height: 100%;
+		gap: 16px;
+	}
+	.menu-principal__item{
+		height: 100%;
+	}
+	.menu-principal__link{
+		display: flex;
+		align-items: center;
+
+		padding: 4px 16px;
+
+		height: 100%;
+
+		font-size: calc(1.17rem*var(--font-coef));
+		font-weight: bold;
+		text-decoration: none;
+		text-transform: uppercase;
+		border: 2px solid var(--coul-neutre-claire);
+		border-radius: 2px;
+	}
+	.menu-principal__item--current > .menu-principal__link{
+		background-color: var(--coul-accent-foncee);
+		border: none;
+	}
+
+	.dropdownMenu__icon{
+		display: none;
+	}
+
+	/**** Main ****/
+	.contenu-principal__intro{
+		padding-left: 64px;
+		padding-right: 64px;
+	}
+
+	.sport__container{
+		display: flex;
+	}
+	.sport{
+		display: flex;
+		flex-direction: column;
+		
+		width: 100%;
+
+		background-color: transparent !important;
+	}
+	.sport__description{
+		margin-bottom: auto;
+	}
+	.sport__illustration{
+		margin-inline: initial;
+		aspect-ratio: 16/9;
+		height: initial;
+		max-height: none;
+	}
+
+	/**** Footer principal ****/
+	.footer-principal{
+		background-color: var(--coul-neutre-medium);
+	}
+}

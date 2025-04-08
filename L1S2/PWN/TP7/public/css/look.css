@@ -1,0 +1,67 @@
+/**** Look.css ********/
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: #333;
+    color: #DDD;
+    font-family: "Roboto Condensed";
+}
+
+body>header {
+    background-color: rgba(0, 0, 0, 1);
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    padding: 0;
+    color: #EEE;
+    margin-bottom: 0.5rem;
+}
+
+header>h2 {
+    font-size: 1.5rem;
+}
+
+.titre-variable {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#nbSuspects {}
+
+
+/***** Menu ***********/
+
+nav a {
+    color: #eee;
+    text-decoration: none;
+}
+
+h3 {
+    border-bottom: 1px solid #555;
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.selection {
+    background: #555;
+}
+
+.bouton {
+    background-color: #000;
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+body>footer {
+    color: #AAA;
+    background-color: rgba(25, 25, 25, 0.8)
+}

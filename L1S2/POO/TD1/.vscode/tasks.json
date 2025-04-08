@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run java code with the current JDK",
+			"type": "shell",
+			"command": ". bin/run.sh Main",
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"java.project.sourcePaths": [
+		"src/",
+		"test/"
+	],
+
+	"livePreview.serverRoot": "/doc",
+	"livePreview.defaultPreviewPath": "/doc",
+	"livePreview.autoRefreshPreview": "Never"
+}

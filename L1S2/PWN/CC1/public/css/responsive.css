@@ -1,0 +1,18 @@
+@media screen and (width>=60rem){
+	.page__content{
+		flex-flow: row nowrap;
+	}
+
+	.pageNav{
+		margin-inline: var(--space-medium);
+		width: 256px;
+	}
+	.pageNav__list{
+		flex-flow: column nowrap;
+	}
+
+	.sport{
+		margin-inline: var(--space-medium);
+		width: 100%;
+	}
+}

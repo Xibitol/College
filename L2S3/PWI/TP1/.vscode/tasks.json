@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run PHP built-in web server on ./public.",
+			"icon": { "id": "run" },
+			"type": "process",
+			"group": "test",
+
+			"command": "php",
+			"args": [
+				"-S", "127.0.0.1:8080",
+				"-t", "./public"
+			],
+
+			"presentation": {
+				"showReuseMessage": false,
+				"clear": true
+			}
+		}
+	]
+}

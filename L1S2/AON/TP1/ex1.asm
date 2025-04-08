@@ -1,0 +1,7 @@
+CLO
+MOV AL, 5
+MOV BL, 2
+MOD AL, BL
+MOV [80] ,AL
+MOV CL, [80]
+end

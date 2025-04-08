@@ -1,0 +1,22 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch juenv-language in a new window.",
+			"type": "extensionHost",
+			"request": "launch",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceFolder}.vscode/extensions/juenv-language"
+			]
+		},
+		{
+			"type": "java",
+			"name": "Source project",
+			"request": "launch",
+			"classPaths": ["${workspaceFolder}/out/src/dev"],
+			"mainClass": "dev.pimous.l2s3sdn.td2.Main",
+			"cwd": "${workspaceFolder}/tmp/project",
+			"vmArgs": "-ea"
+		}
+	]
+}
