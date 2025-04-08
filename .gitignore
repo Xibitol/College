@@ -1,0 +1,10 @@
+# Pimous conventions
+out/
+tmp/
+
+# Lang: Java
+*.vpp.bak_*
+target/
+
+# Lang: Python
+.venv/
