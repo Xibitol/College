@@ -9,7 +9,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <semaphore.h>
 #include <pthread.h>
 #include <stdio.h>
 
@@ -19,13 +18,13 @@ typedef struct {
 } Table;
 
 #define EXEC_NAME "mt_mergesort"
-#define VALUES_COUNT 256
+#define VALUES_COUNT 100000
 
 static unsigned int exitCode = EXIT_SUCCESS;
 
 #define eprintf(...) fprintf(stderr, __VA_ARGS__)
 
-static void* threadedMerge(void* arg){
+static void* threadedMergesort(void* arg){
 	Table* t = ((Table*) arg);
 
 	pthread_t lThread;
@@ -35,11 +34,11 @@ static void* threadedMerge(void* arg){
 	Table rTable = {t->size - t->size/2, t->array + t->size/2};
 
 	if(lTable.size >= 2){
-		pthread_create(&lThread, NULL, &threadedMerge, &lTable);
+		pthread_create(&lThread, NULL, &threadedMergesort, &lTable);
 		pthread_join(lThread, NULL);
 	}
 	if(rTable.size >= 2){
-		pthread_create(&rThread, NULL, &threadedMerge, &rTable);
+		pthread_create(&rThread, NULL, &threadedMergesort, &rTable);
 		pthread_join(rThread, NULL);
 	}
 
@@ -107,7 +106,7 @@ int main(void){
 		if(isSorted(&t)) printf("sorted!\n");
 		else printf("not sorted!\n");
 
-		threadedMerge(&t);
+		threadedMergesort(&t);
 
 		// printf("After:");
 		// for(unsigned int i = 0; i < VALUES_COUNT; i++)
