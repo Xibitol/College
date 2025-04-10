@@ -1,0 +1,1 @@
+Personnage;a;Archer;0;0;d;a
