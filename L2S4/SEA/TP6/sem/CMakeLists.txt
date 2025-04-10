@@ -20,8 +20,12 @@ set_target_properties(mt_mergesort PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY ${SOURCE_DIR}/prod
 )
 
+add_executable(mp_mergesort "${SOURCE_DIR}/mp_mergesort.c")
+set_target_properties(mp_mergesort PROPERTIES
+	RUNTIME_OUTPUT_DIRECTORY ${SOURCE_DIR}/prod
+)
+
 add_executable(mpa_mergesort "${SOURCE_DIR}/mpa_mergesort.c")
-target_link_libraries(mpa_mergesort pthread)
 set_target_properties(mpa_mergesort PROPERTIES
 	RUNTIME_OUTPUT_DIRECTORY ${SOURCE_DIR}/prod
 )

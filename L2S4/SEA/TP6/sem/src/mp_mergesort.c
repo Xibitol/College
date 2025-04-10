@@ -21,8 +21,9 @@ typedef struct {
 	int* array;
 } Table;
 
-#define EXEC_NAME "mpa_mergesort"
+#define EXEC_NAME "mp_mergesort"
 #define VALUES_COUNT 100000
+#define TABLE_SHARED_MEM_NAME "mp_mergesort-table"
 
 static unsigned int exitCode = EXIT_SUCCESS;
 static unsigned int remainingCore = 0;
@@ -166,21 +167,45 @@ int main(void){
 
 	remainingCore = sysconf(_SC_NPROCESSORS_ONLN) - 2 - 1;
 
+	// Create shared obj
+	int tsmFD = shm_open(TABLE_SHARED_MEM_NAME,
+		O_RDWR | O_CREAT | O_EXCL, 0600
+	);
+	if(tsmFD == -1){
+		perror(EXEC_NAME), exitCode = EXIT_FAILURE;
+		return exitCode;
+	}
+
+	if(ftruncate(tsmFD, sizeof(int)*VALUES_COUNT) == -1){
+		perror(EXEC_NAME), exitCode = EXIT_FAILURE;
+
+		shm_unlink(TABLE_SHARED_MEM_NAME);
+
+		return exitCode;
+	}
+
 	// Mem map + table and its values
 	int* values = mmap(NULL, sizeof(int)*VALUES_COUNT,
 		PROT_READ | PROT_WRITE,
-		MAP_SHARED | MAP_ANONYMOUS,
-		-1, 0
+		MAP_SHARED,
+		tsmFD, 0
 	);
 	Table t = {VALUES_COUNT, values};
 
 	if(values == MAP_FAILED){
 		perror(EXEC_NAME), exitCode = EXIT_FAILURE;
+
+		shm_unlink(TABLE_SHARED_MEM_NAME);
+
 		return exitCode;
 	}
 
 	for(unsigned int i = 0; i < VALUES_COUNT; i++)
 		values[i] = rand()%31020;
+
+	// Remove shared obj
+	if(shm_unlink(TABLE_SHARED_MEM_NAME) == -1)
+		perror(EXEC_NAME), exitCode = EXIT_FAILURE;
 
 	// Merge sort
 	{
