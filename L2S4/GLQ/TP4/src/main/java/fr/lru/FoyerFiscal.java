@@ -15,7 +15,7 @@ public record FoyerFiscal(Decimal2f revenu, boolean couple, Decimal1f enfants){
 
 	public static final Decimal2f ABATTEMENT_RESTE = Decimal2f.valueOf(0.9f);
 
-	public FoyerFiscal(Decimal2f revenu, boolean couple, Decimal1f enfants){
+	public FoyerFiscal{
 		Decimal1f parts = getParts(couple, enfants);
 
 		if(revenu.isNegative())
@@ -26,10 +26,6 @@ public record FoyerFiscal(Decimal2f revenu, boolean couple, Decimal1f enfants){
 			throw new IllegalArgumentException(
 				"Trop de parts (%s);".formatted(parts)
 			);
-
-		this.revenu = revenu;
-		this.couple = couple;
-		this.enfants = enfants;
 	}
 	public FoyerFiscal(float revenu, boolean couple, byte enfants){
 		this(Decimal2f.valueOf(revenu), couple, Decimal1f.valueOf(enfants));
@@ -64,7 +60,7 @@ public record FoyerFiscal(Decimal2f revenu, boolean couple, Decimal1f enfants){
 		return getParts(couple, enfants);
 	}
 	public Decimal2f getPartsD2f(){
-		return Decimal2f.valueOf(getParts(couple, enfants));
+		return Decimal2f.valueOf(getParts());
 	}
 
 	public Decimal2f getRevenuImposable(){
@@ -79,7 +75,7 @@ public record FoyerFiscal(Decimal2f revenu, boolean couple, Decimal1f enfants){
 				getQuotientFamilial().isGreaterThanOrEqualTo(ti.minimum)
 			)
 			.map(ti -> ti.getCotisation(this))
-			.reduce(Decimal2f.ZERO, (acc, c) -> acc.add(c));
+			.reduce(Decimal2f.ZERO, Decimal2f::add);
 	}
 
 	public Decimal2f getImpotsD2f(){
