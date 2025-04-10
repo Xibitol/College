@@ -1,213 +1,166 @@
 package fr.lru;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
-import fr.lru.decorator.monstre.Enrage;
-import fr.lru.decorator.monstre.PeauRenforcee;
-import fr.lru.decorator.personnage.Bouclier;
-import fr.lru.decorator.personnage.Epee;
-import fr.lru.exception.FormatInvalideException;
-import fr.lru.exception.TypeEntiteException;
-import fr.lru.exception.TypeMonstreException;
-import fr.lru.exception.TypePersonnageException;
-import fr.lru.fabrique.Fabrique;
-import fr.lru.jeu.Entite;
-import fr.lru.jeu.Monstre;
-import fr.lru.jeu.Personnage;
-import fr.lru.jeu.TypeMonstre;
-import fr.lru.jeu.TypePersonnage;
+class AppTest{
 
-class AppTest {
-    private Personnage personnage1;
-    private Personnage personnage2;
-    private Monstre monstre1;
-    private Monstre monstre2;
-    private Fabrique fabrique;
+	@Test
+	void testRevenuImposable(){
+		assertEquals(0, FoyerFiscal.getRevenuImposable(0));
+		assertEquals(0.9f, FoyerFiscal.getRevenuImposable(1));
+		assertEquals(9, FoyerFiscal.getRevenuImposable(10));
+	}
+	@Test
+	void testRevenuInvalide(){
+		assertThrows(IllegalArgumentException.class,
+			() -> new FoyerFiscal(-1f, false, (byte) 0)
+		);
+	}
 
-    @BeforeEach
-    public void setUp() {
-        personnage1 = new Personnage("Arthas", 150, 20, 10, TypePersonnage.GUERRIER, "Coup de bouclier");
-        personnage2 = new Personnage("Arthas", 150, 20, 10, TypePersonnage.GUERRIER, "Coup de bouclier");
-        monstre1 = new Monstre("GolemDePierre", 250, 15, 30, TypeMonstre.GOLEM, "Eau", "Phsyique");
-        monstre2 = new Monstre("GolemDePierre", 250, 15, 30, TypeMonstre.GOLEM, "Eau", "Phsyique");
-        fabrique = Fabrique.getInstance();
-    }
+	@Test
+	void testParts(){
+		assertEquals(1f, FoyerFiscal.getParts(false, (byte) 0));
+		assertEquals(1.5f,
+			FoyerFiscal.getParts(false, (byte) 1)
+		);
+		assertEquals(2f,
+			FoyerFiscal.getParts(false, (byte) 2)
+		);
+		assertEquals(15f,
+			FoyerFiscal.getParts(false, (byte) 15)
+		);
 
-    @Test
-    void testPersonnage1() {
-        assertNotSame(personnage1, personnage2);
-    }
+		assertEquals(2f, FoyerFiscal.getParts(true, (byte) 0));
+		assertEquals(2.5f,
+			FoyerFiscal.getParts(true, (byte) 1)
+		);
+		assertEquals(3f,
+			FoyerFiscal.getParts(true, (byte) 2)
+		);
+		assertEquals(15f,
+			FoyerFiscal.getParts(true, (byte) 14)
+		);
+	}
+	@Test
+	void testPartsFoyerFiscal(){
+		assertThrows(IllegalArgumentException.class,
+			() -> new FoyerFiscal(0f, true, (byte) -1)
+		);
 
-    @Test
-    void testPersonnage2() {
-        assertEquals(personnage1, personnage2);
-    }
+		assertThrows(IllegalArgumentException.class,
+			() -> new FoyerFiscal(0f, true, (byte) 15)
+		);
 
-    @Test
-    void testPersonnage3() {
-        Personnage personnage3 = new Epee(personnage1);
-        assertEquals(30, personnage3.getAttaque());
-        
-        Personnage personnage4 = ((Epee)personnage3).supprimerEquipement();
-        assertEquals(20, personnage4.getAttaque());
-        assertSame(personnage1, personnage4);
-        assertEquals(personnage1, personnage4);
-    }
+		assertEquals(0f,
+			new FoyerFiscal(0f, true, (byte) 14)
+				.getImpots()
+		);
+	}
 
-    @Test
-    void testPersonnage4() {
-        Personnage personnage3 = new Epee(new Epee(new Bouclier(personnage1)));
-        assertEquals(40, personnage3.getAttaque());
-        assertEquals(15, personnage3.getDefense());
-        assertEquals(150, personnage3.getHp());
+	@Test
+	void testT1(){
+		assertEquals(0f,
+			new FoyerFiscal(0f, true, (byte) 0)
+				.getImpots()
+		);
 
-        Personnage personnage4 = ((Epee)personnage3).supprimerEquipement();
-        assertEquals(30, personnage4.getAttaque());
-        assertEquals(15, personnage4.getDefense());
-        assertEquals(150, personnage4.getHp());
+		assertEquals(0f,
+			new FoyerFiscal(3_120f, false, (byte) 0)
+				.getImpots()
+		);
+		assertEquals(0f,
+			new FoyerFiscal(5_000f, true, (byte) 2)
+				.getImpotsRounded()
+		);
 
-        Personnage personnage5 = ((Epee)personnage4).supprimerEquipement();
-        assertEquals(20, personnage5.getAttaque());
-        assertEquals(15, personnage5.getDefense());
-        assertEquals(150, personnage5.getHp());
+		assertEquals(0f,
+			new FoyerFiscal(12_775.54f, false, (byte) 0)
+				.getImpots()
+		);
+	}
 
-        Personnage personnage6 = ((Bouclier)personnage5).supprimerEquipement();
-        assertEquals(20, personnage6.getAttaque());
-        assertEquals(10, personnage6.getDefense());
-        assertEquals(150, personnage6.getHp());
+	@Test
+	void testT2(){
+		assertEquals(0.11f,
+			new FoyerFiscal(12_775.55f, false, (byte) 0)
+				.getImpots()
+		);
 
-        assertSame(personnage1, personnage6);
-        assertEquals(personnage1, personnage6);
-    }
+		assertEquals(746.03f,
+			new FoyerFiscal(20_310.1f, false, (byte) 0)
+				.getImpots()
+		);
+		assertEquals(1_705f,
+			new FoyerFiscal(30_000f, false, (byte) 0)
+				.getImpotsRounded()
+		);
 
-    @Test
-    void testMonstre1() {
-        assertNotSame(monstre1, monstre2);
-    }
+		assertEquals(1_959.98f,
+			new FoyerFiscal(32_573.32f, false, (byte) 0)
+				.getImpots()
+		);
+	}
 
-    @Test
-    void testMonstre2() {
-        assertEquals(monstre1, monstre2);
-    }
+	@Test
+	void testT3(){
+		assertEquals(1_960.28f,
+			new FoyerFiscal(32_573.33f, false, (byte) 0)
+				.getImpots()
+		);
 
-    @Test
-    void testMonstre3() {
-        Monstre monstre3 = new Enrage(monstre1);
-        assertEquals(30, monstre3.getAttaque());
-        assertEquals(25, monstre3.getDefense());
+		assertEquals(10_207.88f,
+			new FoyerFiscal(63_120.01f, false, (byte) 0)
+				.getImpots()
+		);
+		assertEquals(48_346f,
+			new FoyerFiscal(255_000f, true, (byte) 2)
+				.getImpotsRounded()
+		);
 
-        Monstre monstre4 = ((Enrage)monstre3).supprimerAmelioration();
-        assertEquals(15, monstre4.getAttaque());
-        assertEquals(30, monstre4.getDefense());
-        assertSame(monstre1, monstre4);
-        assertEquals(monstre1, monstre4);
-    }
+		assertEquals(18_312.38f,
+			new FoyerFiscal(93_137.77f, false, (byte) 0)
+				.getImpots()
+		);
+	}
 
-    @Test
-    void testMonstre4() {
-        Monstre monstre3 = new Enrage(new PeauRenforcee(new Enrage(monstre1)));
-        assertEquals(45, monstre3.getAttaque());
-        assertEquals(30, monstre3.getDefense());
-        assertEquals(250, monstre3.getHp());
+	@Test
+	void testT4(){
+		assertEquals(18_312.79f,
+			new FoyerFiscal(93_137.78f, false, (byte) 0)
+				.getImpots()
+		);
 
-        Monstre monstre4 = ((Enrage)monstre3).supprimerAmelioration();
-        assertEquals(30, monstre4.getAttaque());
-        assertEquals(35, monstre4.getDefense());
-        assertEquals(250, monstre4.getHp());
+		assertEquals(32_358.5f,
+			new FoyerFiscal(131_202.01f, false, (byte) 0)
+				.getImpots()
+		);
+		assertEquals(120_280f,
+			new FoyerFiscal(500_000f, true, (byte) 3)
+				.getImpotsRounded()
+		);
 
-        Monstre monstre5 = ((PeauRenforcee)monstre4).supprimerAmelioration();
-        assertEquals(30, monstre5.getAttaque());
-        assertEquals(25, monstre5.getDefense());
-        assertEquals(250, monstre5.getHp());
+		assertEquals(57_865.49f,
+			new FoyerFiscal(200_327.77f, false, (byte) 0)
+				.getImpots()
+		);
+	}
 
-        Monstre monstre6 = ((Enrage)monstre5).supprimerAmelioration();
-        assertEquals(15, monstre6.getAttaque());
-        assertEquals(30, monstre6.getDefense());
-        assertEquals(250, monstre6.getHp());
+	@Test
+	void testT5(){
+		assertEquals(57_865.94f,
+			new FoyerFiscal(200_327.78f, false, (byte) 0)
+				.getImpots()
+		);
 
-        assertSame(monstre1, monstre6);
-        assertEquals(monstre1, monstre6);
-    }
-
-    @Test
-    void testTypeEntiteException() {
-        String ligneInvalide = "Alien;E.T.;Extra;999;99;99";
-
-        Exception exception = assertThrows(TypeEntiteException.class, () -> {
-            fabrique.creerEntite(ligneInvalide);
-        });
-
-        assertTrue(exception.getMessage().contains("Le premier paramètre doit être Personnage ou Monstre"));
-    }
-
-    @Test
-    void testFormatInvalideException_Personnage() {
-        String ligneInvalide = "Personnage;Arthas;Guerrier;150;20;10"; // Manque la compétence
-
-        Exception exception = assertThrows(FormatInvalideException.class, () -> {
-            fabrique.creerEntite(ligneInvalide);
-        });
-
-        assertTrue(exception.getMessage().contains("Le format des données est invalide."));
-    }
-
-    @Test
-    void testFormatInvalideException_Monstre() {
-        String ligneInvalide = "Monstre;Dragon;Dragon;300;50;30;Glace"; // Manque la résistance
-
-        Exception exception = assertThrows(FormatInvalideException.class, () -> {
-            fabrique.creerEntite(ligneInvalide);
-        });
-
-        assertTrue(exception.getMessage().contains("Le format des données est invalide."));
-    }
-
-    @Test
-    void testChampInvalideException_TypePersonnageInconnu() {
-        String ligneInvalide = "Personnage;Arthas;Inconnu;150;20;10;Coup de bouclier"; // TypePersonnage inexistant
-
-        Exception exception = assertThrows(TypePersonnageException.class, () -> {
-            fabrique.creerEntite(ligneInvalide);
-        });
-
-        assertTrue(exception.getMessage().contains("Le type de personnage n'est pas reconnu"));
-    }
-
-    @Test
-    void testChampInvalideException_TypeMonstreInconnu() {
-        String ligneInvalide = "Monstre;Dragon;Inexistant;300;50;20;Glace;Feu"; // TypeMonstre inexistant
-
-        Exception exception = assertThrows(TypeMonstreException.class, () -> {
-            fabrique.creerEntite(ligneInvalide);
-        });
-
-        assertTrue(exception.getMessage().contains("Le type de monstre n'est pas reconnu"));
-    }
-
-    @Test
-    void testCreationValidePersonnage() {
-        String ligneValide = "Personnage;Arthas;Guerrier;150;20;10;Coup de bouclier";
-
-        Entite personnage = fabrique.creerEntite(ligneValide);
-
-        assertNotNull(personnage);
-        assertEquals("Arthas", personnage.getNom());
-    }
-
-    @Test
-    void testCreationValideMonstre() {
-        String ligneValide = "Monstre;Dragon;Dragon;300;50;30;Glace;Feu";
-
-        Entite monstre = fabrique.creerEntite(ligneValide);
-
-        assertNotNull(monstre);
-        assertEquals("Dragon", monstre.getNom());
-    }
+		assertEquals(103_101.29f,
+			new FoyerFiscal(312_020.01f, false, (byte) 0)
+				.getImpots()
+		);
+		assertEquals(155_966f,
+			new FoyerFiscal(500_000f, true, (byte) 0)
+				.getImpotsRounded()
+		);
+	}
 }
