@@ -1,0 +1,13 @@
+{
+	"java.project.sourcePaths": [
+		"biblio/src/",
+		"biblio/test/",
+		"conteneur/src/",
+		"conteneur/test/",
+		"genericite/src/",
+	],
+
+	"livePreview.serverRoot": "/conteneur/doc",
+	"livePreview.defaultPreviewPath": "/conteneur/doc/Conteneur.html",
+	"livePreview.autoRefreshPreview": "Never"
+}
