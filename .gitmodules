@@ -15,3 +15,10 @@
 [submodule "L2S4/PIA/CSP-Fork"]
 	path = L2S4/PIA/CSP-Fork
 	url = git@github.com:Xibitol/csp-Fork
+
+[submodule "L2S4/PTADD/WebServices"]
+	path = L2S4/PTADD/WebServices
+	url = git@github.com:ShallowView/WebServices
+[submodule "L2S4/PTADD/Analyzers"]
+	path = L2S4/PTADD/Analyzers
+	url = git@github.com:Xibitol/Analyzers
