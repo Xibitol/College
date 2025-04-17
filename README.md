@@ -41,7 +41,9 @@
 - L1S2/PTADD: [PetRescue](https://gitlab.univ-lr.fr/l12024/quantumquartet/petrescue) (https://qq.pimous.dev/)
 - L2S3/PTADD: [EcoVoit](https://gitlab.univ-lr.fr/projets-l2-2024/quantum-quartet/covoiturage-la-rochelle) (https://doc-ev-qq.pimous.dev/)
 - L2S3/PIN/Triominoes: [Triominoes](https://gitlab.univ-lr.fr/xibitol/PIN-Triominoes) (https://triominoes.pimous.dev/)
-- L2S4/PIA/CSP-Fork: [CSP-Fork](https://github.com/xibitol/csp-fork) (https://csp-fork.pimous.dev/)
+- L2S4/PIA/CSP-Fork: [CSP-Fork](https://github.com/Xibitol/csp-fork) (https://csp-fork.pimous.dev/)
+- L2S4/PTADD/WebServices: [ShallowView - WebServices](https://github.com/ShallowView/WebServices)
+- L2S4/PTADD/Analyzers: [ShallowView - Analyzers](https://github.com/ShallowView/Analyzers)
 
 ## License
 College (Development work)  
