@@ -17,8 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public abstract class RecursiveFenetre<D extends RecursiveDrawing>
-	extends JFrame
+public class RecursiveFenetre<D extends RecursiveDrawing> extends JFrame
 	implements ActionListener, MouseListener{
 
 	private static final int DRAWINGS_LIMIT = 8;
@@ -51,6 +50,7 @@ public abstract class RecursiveFenetre<D extends RecursiveDrawing>
 
 	// GETTERS
 	protected final ExecutorService getExecutor(){ return executor; }
+	public JPanel getPanel1(){ return this.p1; }
 	public JPanel getZoneDessin(){ return zoneDessin; }
 
 	// SETTERS
@@ -59,6 +59,11 @@ public abstract class RecursiveFenetre<D extends RecursiveDrawing>
         b.addActionListener(this);
         p.add(b);
     }
+	protected final void setDrawingGetter(
+		BiFunction<Integer, Integer, D> drawingGetter
+	){
+		this.drawingGetter = drawingGetter;
+	}
 	protected final void restartExecutor(){
 		if(executor != null) executor.shutdownNow();
 		executor = Executors.newFixedThreadPool(DRAWINGS_LIMIT);
@@ -67,7 +72,7 @@ public abstract class RecursiveFenetre<D extends RecursiveDrawing>
 		count = 0;
 	}
 
-    private void mise_en_page(int maxX, int maxY){
+    protected void mise_en_page(int maxX, int maxY){
         this.p1 = new JPanel(new GridLayout());
 
         this.p2 = new JPanel(new GridLayout());
@@ -92,11 +97,12 @@ public abstract class RecursiveFenetre<D extends RecursiveDrawing>
 	@Override
     public void paint(Graphics g){
         this.p1.repaint();
+		effacer();
         this.p2.repaint();
     }
 	private void drawDessin(D drawing){
 		try{
-			drawing.draw(getGraphics());
+			drawing.draw(zoneDessin.getGraphics());
 		}catch(InterruptedException e){}
 	}
 	private void drawAsync(int x, int y){
@@ -106,7 +112,11 @@ public abstract class RecursiveFenetre<D extends RecursiveDrawing>
 		CompletableFuture<Integer> ycf = CompletableFuture.completedFuture(y);
 
 		xcf.thenCombine(ycf, drawingGetter)
-			.thenAcceptAsync(this::drawDessin, executor);
+			.thenAcceptAsync(this::drawDessin, executor)
+			.exceptionally(t -> {
+				t.printStackTrace();
+				return null;
+			});
 	}
 	private void drawAsync(){
 		Dimension d = getZoneDessin().getSize();
