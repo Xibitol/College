@@ -1,0 +1,1 @@
+To test every question quickly, do `bash bin/testCC.sh`!
