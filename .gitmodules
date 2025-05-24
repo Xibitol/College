@@ -16,6 +16,9 @@
 	path = L2S4/PIA/CSP-Fork
 	url = git@github.com:Xibitol/csp-Fork
 
+[submodule "L2S4/PTADD/Administration"]
+	path = L2S4/PTADD/Administration
+	url = git@github.com:Xibitol/Administration
 [submodule "L2S4/PTADD/WebServices"]
 	path = L2S4/PTADD/WebServices
 	url = git@github.com:ShallowView/WebServices
