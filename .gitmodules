@@ -25,3 +25,6 @@
 [submodule "L2S4/PTADD/Analyzers"]
 	path = L2S4/PTADD/Analyzers
 	url = git@github.com:ShallowView/Analyzers
+[submodule "L2S4/Immersion"]
+	path = L2S4/Immersion
+	url = git@github.com:Xibitol/TimeCapsule
