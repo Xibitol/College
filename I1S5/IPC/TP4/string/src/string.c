@@ -6,11 +6,12 @@
  * @copyright GNU Lesser General Public License v3.0
  */
 
-#include "stdbool.h"
-#include "string.h"
-#include "stdlib.h"
-#include "stdio.h"
-#include "math.h"
+#include <stdbool.h>
+#include <string.h>
+#include <stdlib.h>
+#include <sys/param.h>
+#include <stdio.h>
+#include <math.h>
 
 #define EX1_ARG_COUNT 2
 #define EX2_ARG_COUNT 4
@@ -120,11 +121,18 @@ int main(const int argc, const char* const* argv){
 		printExerciseTitle(4, EX4_ARG_COUNT, exArgv);
 
 		char out[32];
+		char smallOut[5];
 		printf("Unsigned integer: %s\n",
-			itoa(atoi(exArgv[0]), out, sizeof out - 1)
+			itoa(atoi(exArgv[0]), out, sizeof out)
+		);
+		printf("Unsigned integer (Too short): %s\n",
+			itoa(atoi(exArgv[0]), out, sizeof smallOut)
 		);
 		printf("Integer: %s\n",
 			itoaEnhanced(atoi(exArgv[1]), out, sizeof out)
+		);
+		printf("Integer (Too short): %s\n",
+			itoaEnhanced(atoi(exArgv[1]), out, sizeof smallOut)
 		);
 	}
 	minArgCount += EX4_ARG_COUNT;
@@ -188,13 +196,13 @@ bool isPalindrome(const char* string){
 	return a >= b;
 }
 bool isAlpha(const char c){
-	return (c >= 0x41 && c <= 0x5A) || (c >= 0x61 && c <= 0x7A);
+	return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
 }
 bool isNumeric(const char c){
-	return c >= 0x31 && c <= 0x39;
+	return c >= '0' && c <= '9';
 }
 char toLower(char c){
-	return isAlpha(c) && c < 0x61 ? c + 0x20 : c;
+	return isAlpha(c) && c <= 'Z' ? c + ('Z' - 'a') : c;
 }
 bool isPalindromeEnhanced(const char* string){
 	const size_t length = strlen(string);
@@ -238,14 +246,11 @@ char* chaine_miroir_to(const char* string,
 
 // Exercise 4
 char* itoa(const unsigned int number, char* out, const unsigned int size){
-	static char digits[] = {
-		'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-	};
 	const unsigned int length = ((int) log10f(number)) + 1;
 	unsigned int tmpNum = number;
 
-	for(unsigned i = 0; i < length && i < size; i++){
-		out[length - 1 - i] = digits[tmpNum%10];
+	for(unsigned i = MIN(length - size, 0); i < length; i++){
+		out[length - 1 - i] = '0' + tmpNum%10;
 		tmpNum /= 10;
 	}
 
@@ -253,14 +258,11 @@ char* itoa(const unsigned int number, char* out, const unsigned int size){
 	return out;
 }
 char* itoaEnhanced(const int number, char* out, const unsigned int size){
-	static char digits[] = {
-		'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-	};
 	int tmpNum = abs(number);
 	unsigned int length = ((unsigned int) log10f(tmpNum)) + 1 + (number < 0);
 
-	for(unsigned int i = 0; i < length && i < size; i++){
-		out[length - 1 - i] = digits[tmpNum%10];
+	for(unsigned i = MIN(length - size, 0); i < length; i++){
+		out[length - 1 - i] = '0' + tmpNum%10;
 		tmpNum /= 10;
 	}
 
