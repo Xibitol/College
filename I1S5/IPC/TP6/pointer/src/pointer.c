@@ -14,8 +14,6 @@
 #include <assert.h>
 
 #define eprintf(...) fprintf(stderr, __VA_ARGS__)
-#define printArgcError(number) \
-	eprintf("Not enough arguments to execute exercise %d;\n", number)
 
 static void printExerciseTitle(const unsigned int number);
 
