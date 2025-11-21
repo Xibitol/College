@@ -187,9 +187,11 @@ const char *sneaky_bartender(
 		cocktails_count, cocktails,
 		cocktailsWith
 	);
-	fprintf(stderr, "sneaky_bartender: %d\n", size);
 
-	const struct recipe* best = most_profitable(size, cocktailsWith);
+	struct recipe recipeAvailables[size];
+	size = recipes_available(size, cocktailsWith, recipeAvailables);
+
+	const struct recipe* best = most_profitable(size, recipeAvailables);
 	return best != NULL ? best->name : NULL;
 }
 
@@ -246,11 +248,9 @@ int program(int argc, const char *argv[]){
 		count, products_ids, MENU_LENGTH, menu, proposals
 	);
 
-	fprintf(stderr, "program: %d\n", proposalsCount);
 	const char* nameBest = sneaky_bartender(
 		count, products_ids, MENU_LENGTH, menu
 	);
-	fprintf(stderr, "program: %s\n", nameBest);
 
 	for(unsigned int i = 0; i < (unsigned int) proposalsCount; i++){
 		if(nameBest != NULL && strcmp(proposals[i].name, nameBest) == 0)
