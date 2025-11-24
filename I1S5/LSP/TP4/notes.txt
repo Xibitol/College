@@ -1,0 +1,9 @@
+Bob,8
+Alice,19
+Charlie,14
+Bob,14
+Charlie,20
+Alice,13
+Bob,16
+Alice,18
+Charlie,9
