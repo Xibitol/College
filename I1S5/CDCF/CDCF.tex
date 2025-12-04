@@ -1,0 +1,726 @@
+\documentclass{article}
+
+\usepackage[a4paper]{geometry}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+
+\usepackage{microtype} % Because LATEX sucks in justifying text.
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{comicneue}
+\usepackage{ulem} % Because \underline sucks in tables.
+\usepackage{hyperref}
+
+\usepackage[section]{placeins} % Because LATEX sucks on placing figures where there are defined.
+\usepackage{caption} % Because we can change easily caption fonts.
+\usepackage{tabularx} % Because tabular sucks on justifying texts.
+\usepackage{multirow}
+\usepackage{makecell} % Because multirow sucks on cell colors.
+\usepackage[table]{xcolor}
+
+\usepackage{graphics}
+\usepackage{svg}
+
+\usepackage[
+	type={CC},
+	modifier={by-nc-sa},
+	version={4.0},
+]{doclicense}
+
+% THEME
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{primary}{RGB}{133, 83, 24}
+\definecolor{primaryContainer}{RGB}{255, 220, 190}
+\definecolor{onPrimaryContainer}{RGB}{105, 60, 0}
+
+\definecolor{secondary}{RGB}{114, 90, 66}
+
+\definecolor{tertiary}{RGB}{88, 99, 58}
+\definecolor{tertiaryContainer}{RGB}{220, 232, 180}
+
+\frenchsetup{
+	StandardItemLabels=true,
+	StandardLayout=true,
+}
+
+\hypersetup{
+	pdftitle={Cahier des Charges Fonctionnel},
+	colorlinks=true,
+	linkcolor=primary,
+	urlcolor=secondary,
+}
+
+\captionsetup{
+	labelfont={bf,normalfont},
+	textfont=it,
+}
+
+% DOCUMENT
+\title{Cahier Des Charges Fonctionnel}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\setlength{\headheight}{13.1pt} % Because fancyhdr doesn't now how to auto adjust.
+\fancyhead[R]{\leftmark}
+\renewcommand{\headrule}{
+	\vspace{-8pt}\hrulefill
+	\raisebox{-4pt}{
+		\quad\includesvg[width=8em]{images/Alberts_logo.svg}\quad
+	}\hrulefill
+}
+
+\setlength{\footskip}{50pt}
+\fancyfoot[L]{Par A. Pelleray-Guilhem, J. Touaibi, N. Sutre \& A. Rehman}
+\fancyfoot[R]{Page \thepage\ sur \pageref*{LastPage}}
+\fancyfoot[C]{\raisebox{-2em}{\textit{
+	Bordeaux INP; ENSEIRB-MATMECA \textcopyright\ 2025 - Sous license
+	\href{\doclicenseURL}{\doclicenseIcon}.
+}}}
+
+\begin{document}
+
+\begin{titlepage}
+	\begin{minipage}{0.47\textwidth}
+		\href{https://www.alberts.de}{\includesvg{images/Alberts_logo.svg}}
+	\end{minipage}
+	\begin{minipage}{0.47\textwidth}
+		\raggedleft
+		\href{https://www.bordeaux-inp.fr}{
+			\includegraphics[width=14em]{
+				images/EnseirbMatmeca-BordeauxINP_logo.jpeg
+			}
+		}
+	\end{minipage}
+
+	\vspace{\fill}
+
+	\begin{center}
+		\LARGE{\textbf{Stocks, Livraisons et Facturation}}\\
+		\medskip
+		\Large{
+			Étude de cas
+			- Quincaillerie Alberts\textsuperscript{\textregistered}
+		}\\
+		\large{\uline{Cachier Des Charges Fonctionnel}}
+	\end{center}
+
+	\vspace{\fill}
+
+	\begin{center}
+		\textit{Par A. Pelleray-Guilhem, J. Touaibi, N. Sutre \& A. Rehman,}\\
+		\textit{modifié la dernière fois le \today.}\\
+		\bigskip
+		\textit{
+			Bordeaux INP; ENSEIRB-MATMECA \textcopyright\ 2025 - Sous license
+			\href{\doclicenseURL}{\doclicenseIcon}.
+		}
+	\end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Besoins d'étude}
+
+\subsection{Historique}
+La quincaillerie ALBERT est une entreprise familiale fondée en 1989. Si sa
+clientèle se composait au début de son existence essentiellement de
+particuliers, il n'en est plus de même aujourd'hui puisque la quincaillerie
+effectue 50\% de son chiffre d'affaires avec des professionnels. Son activité se
+répartit de façon équitable entre la vente directe et la vente par
+correspondance (VPC). Depuis trois ans et devant la demande grandissante
+des professionnels du bâtiment, la quincaillerie a vu son catalogue s'enrichir
+de nombreux nouveaux articles, accessoires ou consommables, faisant ainsi
+tripler le nombre de références (5000 à 15000).
+
+Paradoxalement, cette volonté de toujours répondre aux attentes de la clientèle
+a entraîné chez celle-ci de nombreuses insatisfactions notamment dans l'activité
+VPC qui a vu d'ailleurs son chiffre d'affaires diminué de 20\% en deux ans.
+Monsieur ALBERT impute cette baisse aux nombreuses erreurs constatées dans les
+livraisons ainsi que des oublis ou des erreurs de facturation. La marge, quant à
+elle, toujours pour la VPC, a diminué de 50\% en deux ans. Cet effondrement est
+dû, selon monsieur ALBERT, à une très mauvaise gestion de stocks et à un manque
+d'optimisation des tournées de livraison.
+
+Pour faire face à ce constat inquiétant, monsieur ALBERT fait appel à nos
+services pour implanter dans la quincaillerie un système informatique dernier
+cri qu'il espère suffisamment performant pour éradiquer les problèmes actuels.
+Il nous précise également que ce nouvel outil ne doit perturber en rien le
+travail de la quincaillerie et qu'il ne doit pas entraîner d'embauches.
+
+\subsubsection{Enjeux économiques}
+Le point de départ est l'augmentation des demandes des professionnels,
+représentant maintenant 50\% du chiffre d'affaire, et donc l'enrichissement
+conséquent du catalogue.
+\medskip\\
+Cet enrichisement à conduit à une baisse du chiffre d'affaire principale de la
+VPC de 20\%.
+\\\indent Initialement, il y a deux ans, de 117.00€ par an, il a donc baissé à
+93.600€.
+\medskip\\
+De plus, suites aux plaintes des clients, la marge sur les produits de la VPC
+on baissé de 50\%.
+\\\indent Initialement, il y a deux ans, de 30\%, elle a donc baissée à 15\%.
+
+\subsubsection{Cause racine}
+L'étude du problème nous a donc conduit à définir la cause racine comme étant
+principalement une mauvaise gestion des stocks et un manque d'optimisation des
+tournées de livraison. Les erreurs dans la comptabilité et les livraisons en
+découlent.
+
+\subsection{Objectifs visés}
+\begin{itemize}
+	\item Éradication des erreurs de facturation;
+	\item Éradication des erreurs et retards de libraisons;
+	\item Augmentation du chiffre d'affaire de la VPC de 20\%;
+	\item Augmentation de la marge de la VPC de 15\%;
+	\item Atteinte des objectifs 12 mois après la mise en service.
+\end{itemize}
+
+\subsection{Contraintes}
+\begin{itemize}
+	\item Le système ne doit entraîner aucune embauche;
+	\item Le système ne doit en rien perturber la productivitée;
+	\item Le système doit être oppérationnel pour dans 1 an après la validation
+	de ce document;
+	\item La réalisation du système a un budget égal au manque à gagner suite à
+	la baisse du chiffre d'affaire de la VPC, c.à.d 20.300€.\\
+	Par allieurs, nous en avons débuit un TRI (temps de retour sur
+	investissement) de 1 an.
+\end{itemize}
+
+\section{Besoins du système}
+
+\subsection{Gérer précisément le stock}\label{cat:besoin:stock}
+Le premier besoin, étant une des causes racines, est la gestion précise du
+stock. Jusqu'à présent, de nombreuses erreurs ont été constatés, notamment suite
+à l'augmentation du nombre de références.
+\medskip\\
+D'une part, ce besoin pourrait être voué à évoluer sur une nouvelle augmentation
+des demandes et/ou références serait de nouveau constatée. D'autre part, une
+baisse de ces derniers pourrait rendre ce besoin caduque.
+
+\subsection{Facturer correctement}
+En conséquence des causes racines, la facturation en est directement impactée.
+De nombreuses erreures ont été constatées et le besoin d'une facturation
+correcte en est déduite.
+\medskip\\
+Les raisons de l'évolution ou de la disparition de ce besoin sont similaires
+à \hyperref[cat:besoin:stock]{\nameref{cat:besoin:stock}}.
+
+\subsection{Optimiser les tournées de livraison (VPC)}
+La deuxième cause racine créé aussi sont besoin d'optimiser les tournées de
+livraison, uniquement pour la VPC. De nombreux retards et erreurs ont été
+constatés notamment suite à l'augmentation des demandes.
+\medskip\\
+Contrairement aux deux précédents, seul l'augmentation ou la réduction
+des demandes entraînerait respectivement l'évolution ou la potentielle
+disparition de ce besoin.
+
+\subsection{Hiérarchisation}
+
+\section{Situation de vies du système}
+
+\newpage
+\subsection{Transport}
+\begin{figure}[hbt!]
+	\centering
+	\includesvg{images/Transport.svg}
+	\caption{
+		Transport du système du lieu de fabrication au lieu d'exploitation.
+	}
+\end{figure}
+\FloatBarrier
+
+\subsection{Installation}
+\begin{figure}[hbt!]
+	\centering
+	\includesvg{images/Installation.svg}
+	\caption{Mise en place du système livré.}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsection{Utilisation}
+\begin{figure}[hbt!]
+	\centering
+	\includesvg{images/Utilisation.svg}
+	\caption{Utilisation du système.}
+\end{figure}
+\FloatBarrier
+
+\subsection{Repos}
+\begin{figure}[hbt!]
+	\centering
+	\includesvg{images/Repos.svg}
+	\caption{Veille du système, principalement hors période d'activité.}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\subsection{Maintenance}
+\begin{figure}[hbt!]
+	\centering
+	\includesvg{images/Maintenance.svg}
+	\caption{Maintenance du système.}
+\end{figure}
+\FloatBarrier
+
+\newpage
+\section{Fonctions}
+
+\begin{table}[hbt!]
+\centering
+
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{1\textwidth}{|X|c|c|c|c|c|c|}
+	\hline
+		\multirow{2}{*}{\textbf{Fonctions}}
+		& \multicolumn{5}{|c|}{\textbf{Situations de vies}}
+		& \multirow{2}{*}{\textbf{Page}}
+	\\
+	\cline{2-6}
+	\rule{0pt}{8em}
+		& \textbf{\rotatebox{90}{Transport}}
+		& \textbf{\rotatebox{90}{Installation}}
+		& \textbf{\rotatebox{90}{Utilisation}}
+		& \textbf{\rotatebox{90}{Repos}}
+		& \textbf{\rotatebox{90}{Maintenance}}
+		&
+	\\
+	\hline
+	\hline
+		FP1\footnote{Fonction Principale} (Magasinier <-> Stock): Le système
+			permet au \uline{Magasinier} de \textbf{gérer} le \uline{Stock}.
+		&
+		&
+		& \cellcolor{tertiaryContainer}
+		&
+		& \cellcolor{tertiaryContainer}
+		& \pageref{cat:fp1}
+	\\
+	\hline
+		FP2 (Facturier <-> Facturation): Le système permet au
+			\uline{Facturier} de \textbf{gérer} les \uline{Stocks}.
+		&
+		&
+		& \cellcolor{tertiaryContainer}
+		&
+		& \cellcolor{tertiaryContainer}
+		& \pageref{cat:fp2}
+	\\
+	\hline
+		FP3 (Livreur <-> Tournées): Le système permet au
+			\uline{livreur} de \textbf{gérer} les \uline{tournées de livraison}.
+		&
+		&
+		& \cellcolor{tertiaryContainer}
+		&
+		& \cellcolor{tertiaryContainer}
+		& \pageref{cat:fp3}
+	\\
+	\hline
+	\hline
+		FC1\footnote{Fonction Contrainte}: Le système ne doit pas
+			\textbf{blesser} l'\uline{Utilisateur}.
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		&
+		& \cellcolor{tertiaryContainer}
+		& \pageref{cat:fc1}
+	\\
+	\hline
+		FC2: Le système doit \textbf{se conformer} à des \uline{Normes}.
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \pageref{cat:fc2}
+	\\
+	\hline
+		FC3: Le système doit \textbf{résister} aux agressions du \uline{Milieu
+			Extérieur}.
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \pageref{cat:fc3}
+	\\
+	\hline
+		FC4: Le système doit \textbf{résister} aux agressions du \uline{Moyen de
+			Transport}.
+		& \cellcolor{tertiaryContainer}
+		&
+		&
+		&
+		&
+		& \pageref{cat:fc4}
+	\\
+	\hline
+		FC5: Le système doit \textbf{résister} aux agressions de
+			l'\uline{Utilisateur}.
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		&
+		& \cellcolor{tertiaryContainer}
+		& \pageref{cat:fc5}
+	\\
+	\hline
+		FC6: Le système doit \textbf{être compatible} à son \uline{Support}.
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \cellcolor{tertiaryContainer}
+		& \pageref{cat:fc6}
+	\\
+	\hline
+		FC7: Le système ne doit pas \textbf{entraîner} une baisse d'activité des
+			\uline{Employés}.
+		&
+		& \cellcolor{tertiaryContainer}
+		&
+		&
+		&
+		& \pageref{cat:fc7}
+	\\
+	\hline
+\end{tabularx}
+
+\caption{\textit{Récapitulatif des fonctions de chaque situation de vie.}}
+\end{table}
+
+\newpage
+\subsection{Transport}
+
+\subsubsection{FC1}\label{cat:fc1}
+Le système ne doit pas \textbf{blesser} l'\uline{Utilisateur}:
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Utilisateur: Personnel en charge du déplacement du système, soit
+			  du lieu de fabrication à la quincaillerie, soit au sein de
+			  l'entreprise;
+		\item Blesser: Le système ne doit pas porter atteinte à l'intégrité
+			  physique de l'utilisateur, c'est-à-dire il ne doit pas être
+			  tranchant, dépasser 10kg et la température ambiante, et doit être
+			  ergonomique dans son déplacement et sa manipulation,
+			  n'entraînerait pas dans ses fonctions principales;
+	\end{itemize}
+	\item \textbf{Estime:} Néant;
+	\item \textbf{Échange:} 5/5;
+\end{itemize}
+
+\subsubsection{FC2}\label{cat:fc2}
+Le système doit \textbf{se conformer} à des \uline{Normes}:
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Normes: Règlementations standardisées ou non visant à assurer une
+			  garanti de sécurité et d'adaptabilité aux autres systèmes.
+			  Notamment, le système ne doit pas être dangeureux, humainement
+			  et écologiquement, il doit se conformer à toute nomenclature
+			  définie par l'entreprise et doit se conformer aux normes
+			  spécifiques à sa matérialisation.
+			  \smallskip\\
+			  On considère ici l'ISO 25010 (Modèle de qualité produit), l'ISO
+			  27034 (Sécurité) et les conventions/nomenclatures de l'entreprise.
+			  Dans le cas d'un système du type informatique, on considèrera
+			  aussi l'intégralité des RFCs (À préciser ultérieurement);
+		\item Se conformer: Le système doit respecter les règles et conventions
+			  internes et externes à l'entreprise;
+	\end{itemize}
+	\item \textbf{Estime:} Néant;
+	\item \textbf{Échange:} 5/5;
+\end{itemize}
+
+\subsubsection{FC3}\label{cat:fc3}
+Le système doit \textbf{résister} aux aggressions du \uline{Milieu Extérieur}.
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Milieu Extérieur: Tout phénomène physique incluant la chute,
+		l'humidité, la température, les rongeurs et toute autre altération
+		portant atteintes à son intégrité;
+		\item Résister: Le système doit s'opposer aux alterations et à toute
+			  dégradation de façon qu'il puisse toujours remplir ses fonctions
+			  principales;
+	\end{itemize}
+	\item \textbf{Estime:} Néant;
+	\item \textbf{Échange:} 3/5 (Dans le cas où l'action réalisée sur le
+		  système est un échec, la répétition peut tendre à faire réussir
+		  l'opération);
+\end{itemize}
+
+\subsubsection{FC4}\label{cat:fc4}
+Le système doit \textbf{résister} aux agressions du \uline{Moyen de Transport}.
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Moyen de Transport: Intermédiaire visant à déplacer le système,
+			  soit du lieu de fabrication à la quincaillerie, soit au sein de
+			  l'entreprise;
+		\item Résister: Le système doit s'opposer aux alterations et à toute
+			  dégradation de façon qu'il puisse toujours remplir ses fonctions
+			  principales;
+	\end{itemize}
+	\item \textbf{Estime:} Néant;
+	\item \textbf{Échange:} 3/5 (Dans le cas où l'action réalisée sur le
+		  système est un échec, la répétition peut tendre à faire réussir
+		  l'opération);
+\end{itemize}
+
+\subsubsection{FC5}\label{cat:fc5}
+Le système doit \textbf{résister} aux agressions de l'\uline{Utilisateur}.
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Utilisateur: Personnel en charge du déplacement du système, soit
+			  du lieu de fabrication à la quincaillerie, soit au sein de
+			  l'entreprise;
+		\item Blesser: Le système doit s'opposer aux alterations et à toute
+			  dégradation de façon qu'il puisse toujours remplir ses fonctions
+			  principales;
+	\end{itemize}
+	\item \textbf{Estime:} Néant;
+	\item \textbf{Échange:} 4/5;
+\end{itemize}
+
+\subsubsection{FC6}\label{cat:fc6}
+Le système doit \textbf{être compatible} à son \uline{Support}.
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Support: Moyen, matériel ou média de transport, de préférence
+			  open-source, connu du grand public, reconnu comme fiable à 99\% et
+			  rapide à des vitesses optimisés aux infrastructures;
+		\item Être compatible: Le système doit être encapsulable dans le support
+			  ci-dessus en un maximum de 10 secondes, sans nécessiter de
+			  manipulations supplémentaires dans sa forme finale;
+	\end{itemize}
+	\item \textbf{Estime:} Néant;
+	\item \textbf{Échange:} 5/5;
+\end{itemize}
+
+\newpage
+\subsection{Installation}
+
+\subsubsection{FC1.1}
+\textit{Voir \hyperref[cat:fc1]{\nameref{cat:fc1}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour l'Utilisateur, on parle du personnel
+en charge de l'installation du système dans la quincaillerie.
+
+\subsubsection{FC2}
+\textit{Voir \hyperref[cat:fc2]{\nameref{cat:fc2}}}.
+
+\subsubsection{FC3}
+\textit{Voir \hyperref[cat:fc3]{\nameref{cat:fc3}}}.
+
+\subsubsection{FC5.1}
+\textit{Voir \hyperref[cat:fc5]{\nameref{cat:fc5}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour l'Utilisateur, on parle du personnel
+en charge de l'installation du système dans la quincaillerie.
+
+\subsubsection{FC6.1}
+\textit{Voir \hyperref[cat:fc6]{\nameref{cat:fc6}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour le Support, on parle d'un moyen,
+matériel ou média d'installation.
+
+\subsubsection{FC7}\label{cat:fc7}
+Le système \textbf{ne} doit \textbf{pas entraîner} une baisse d'activité des
+\uline{Employés}.
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Employés: Personnel de l'entreprise en mission pendant
+			  l'installation du système.
+		\item Ne \dots\ pas entraîner: Le système ne doit pas conduire à
+			  une variation de l'activité de l'entreprise, que ce soit une
+			  croissance ou une décroissance;
+	\end{itemize}
+	\item \textbf{Estime:} Néant;
+	\item \textbf{Échange:} 5/5;
+\end{itemize}
+
+\newpage
+\subsection{Utilisation}
+
+\subsubsection{FP1 (Magasinier <-> Stock)}\label{cat:fp1}
+Le système permet au \uline{Magasinier} de \textbf{gérer} le \uline{Stock}.
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Magasinier: Personnel de l'entreprise en charge de la gestion du
+			  stock et de la préparation de commandes.
+		\item Stock: Le système doit représenter fidèlement, avec une latence de
+			  10 minutes, la quantité d'articles présent dans le lou les
+			  entrepôts.\\
+			  \uline{Champs d'une Fiche Article:}
+			  \begin{itemize}
+				\item Référence;
+				\item Nom d'affichage;
+				\item Fournisseur;
+				\item Date de création;
+				\item Quantité en stock;
+				\item Seuil mini avant alerte;
+				\item Quantité de réapprovisionnement après alerte;
+				\item Quantité commandé au fournisse;
+				\item Date de dernier réapprovisionnement;
+			  \end{itemize}
+			  \uline{Champ d'un Bon de commande:}
+			  \begin{itemize}
+				\item Numéro de bon;
+				\item Client (Nom, SIREN, Numéro de TVA, Adresse de livraison);
+				\item Liste des articles (Référence, Nom, Quantité);
+				\item Indicateur de status de la commande (En attente, En
+					  préparation, Préparé);
+				\item Liste des numéros de colis emballés;
+			  \end{itemize}
+		\item Gérer: Le système doit aider à référencer les produits, à ajouter,
+			  retirer, modifier, réapprovisionner et inventorier, à préparer des
+			  commandes et à éditer des bons de commandes, avec une latence de
+			  maximum 1 seconde, peu importe la position du magasinier, sans
+			  être encombrant et d'un poids de maximum 600g;
+	\end{itemize}
+	\item \textbf{Estime:} Élégant, Accessble, Rapide et Pratique;
+	\item \textbf{Échange:} 5/5;
+\end{itemize}
+
+\subsubsection{FP2 (Facturier <-> Facturation)}\label{cat:fp2}
+Le système permet au \uline{Facturier} de \textbf{gérer} les \uline{Factures}.
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Facturier: Personnel de l'entreprise en charge de la facturation.
+		\item Factures: Le système doit aider à sauvegarder de façon permanente
+			  les documents listant les articles commandés par des clients,
+			  conservé minimum 10 ans, à gérer un suivi respectant les lois en
+			  vigueurs et à gérer leurs dématérialisation.\\
+			  \uline{Champs d'une Facture:}
+			  \begin{itemize}
+				\item Numéro de facture (Suite sans doublon ni saut);
+				\item Informations du client (Nom, SIREN, Numéro de TVA,
+					  Adresse);
+				\item Informations de l'entreprise (Nom, SIREN, Numéro de TVA,
+					  Adresse);
+				\item Liste des articles (Identifiant, Nom, Prix unitaire,
+					  Quantité, Prix HT);
+				\item Total (Prix HT, TVA, Zone TVA, Remise, Prix TTC (après
+					  remise));
+				\item Indications supplémentaires optionnelles;
+			  \end{itemize}
+		\item Gérer: Le système doit aider à convertir des commandes en
+			  factures, à assurer un suivi entre commandes et envoi à la
+			  comptabilité/aux clients, à empêcher toute entravent à la loi sur
+			  leur modification après validation, à éditer des avoirs en cas
+			  d'erreurs ou de litiges, et à archiver tout les documents, avec
+			  une latence de maximum 1 seconde sur l'édition et 5 secondes sur
+			  la conversion, l'envoi ou l'archivage;
+	\end{itemize}
+	\item \textbf{Estime:} Élégant, Accessble, Rapide et Pratique;
+	\item \textbf{Échange:} 5/5;
+\end{itemize}
+
+\subsubsection{FP3 (Livreur <-> Tournées)}\label{cat:fp3}
+Le système permet au \uline{Livreur} de \textbf{gérer} les \uline{Tournées de
+livraisons}.
+\begin{itemize}
+	\item \textbf{Usage:} \begin{itemize}
+		\item Livreur: Personnel de l'entreprise en charge de la livraison.
+		\item Tournées de livraisons: Le système doit permettre en moins de 10
+			  secondes de se tenir informé de l'avancement de la journée de la
+			  livraison, des prochains colis à déposer, des colis déjà
+			  receptionnés par les clients avec leur signature et des prochaines
+			  journées à venir (potentiellement incomplètes en fonction des
+			  commandes déjà émises et des absences lors de livraisons).\\
+			  \uline{Champs d'une Tournée de Livraison:}
+			  \begin{itemize}
+				\item Numéro de tournée de livraison;
+				\item Date de livraison;
+				\item Zone de livraison (Département ou lieu personnalisé);
+				\item Liste des livraisons: \begin{itemize}
+					\item Informations du client (Nom, SIREN, Numéro de TVA,
+					  Adresse);
+					\item Liste des numéros de colis;
+					\item Nombre de colis;
+					\item Espace de signature du client;
+					\item Date de livraison suivante si absence (Intégration
+						  dans la tournée de livraison concernée);
+				\end{itemize}
+			  \end{itemize}
+		\item Gérer: Le système doit aider à planifier les trajets de
+			  manière optimisé, vérifier les informations des colis, suivre
+			  les tournées de livraisons et remonter les anomalies;
+	\end{itemize}
+	\item \textbf{Estime:} Élégant, Accessble, Rapide et Pratique;
+	\item \textbf{Échange:} 5/5;
+\end{itemize}
+
+\subsubsection{FC1.2}
+\textit{Voir \hyperref[cat:fc1]{\nameref{cat:fc1}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour l'Utilisateur, on parle de
+l'utilisateur final du système tel que le(s) magasinier(s), le(s) facturier(s)
+et le(s) livreur(s).
+
+\subsubsection{FC2}
+\textit{Voir \hyperref[cat:fc2]{\nameref{cat:fc2}}}.
+
+\subsubsection{FC3}
+\textit{Voir \hyperref[cat:fc3]{\nameref{cat:fc3}}}.
+
+\subsubsection{FC5.2}
+\textit{Voir \hyperref[cat:fc5]{\nameref{cat:fc5}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour l'Utilisateur, on parle de
+l'utilisateur final du système tel que le(s) magasinier(s), le(s) facturier(s)
+et le(s) livreur(s).
+
+\subsubsection{FC6.2}
+\textit{Voir \hyperref[cat:fc6]{\nameref{cat:fc6}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour le Support, on parle d'un moyen,
+matériel ou média d'utilisation nécéssaire au bon fonctionnement du système.
+
+\subsection{Repos}
+
+\subsubsection{FC2}
+\textit{Voir \hyperref[cat:fc2]{\nameref{cat:fc2}}}.
+
+\subsubsection{FC3}
+\textit{Voir \hyperref[cat:fc3]{\nameref{cat:fc3}}}.
+
+\subsubsection{FC6.3}
+\textit{Voir \hyperref[cat:fc6]{\nameref{cat:fc6}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour le Support, on parle d'un moyen,
+matériel ou média de repos/stockage en mode veille.
+
+\subsection{Maintenance}
+
+\subsubsection{FC1.3}
+\textit{Voir \hyperref[cat:fc1]{\nameref{cat:fc1}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour l'Utilisateur, on parle du personnel
+en charge de maintenance du système dans la quincaillerie.
+
+\subsubsection{FC2}
+\textit{Voir \hyperref[cat:fc2]{\nameref{cat:fc2}}}.
+
+\subsubsection{FC3}
+\textit{Voir \hyperref[cat:fc3]{\nameref{cat:fc3}}}.
+
+\subsubsection{FC5.3}
+\textit{Voir \hyperref[cat:fc5]{\nameref{cat:fc5}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour l'Utilisateur, on parle du personnel
+en charge de maintenance du système dans la quincaillerie.
+
+\subsubsection{FC6.4}
+\textit{Voir \hyperref[cat:fc6]{\nameref{cat:fc6}}}.
+\medskip\\
+Dans le cas de cette situation de vie, pour le Support, on parle d'un moyen,
+matériel ou média de maintenance.
+
+\end{document}
