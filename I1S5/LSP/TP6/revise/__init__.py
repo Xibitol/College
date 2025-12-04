@@ -2,7 +2,7 @@
 """
 __author__ = "Xibitol"
 
-from typing import Iterator
+from typing import Iterator, Iterable
 
 import math
 
@@ -55,9 +55,10 @@ def sous_ensembles(e: set[int]) -> list[set[int]]:
 	subSets = sous_ensembles(e - x)
 	return subSets + [n | x for n in subSets]
 
-def max_occurrences(s: list[int]) -> Iterator[int]:
+def max_occurrences(s: Iterable[int]) -> Iterator[int]:
+	l = list(s)
 	return map(lambda t: t[1],
-		sorted([(s.count(n), n) for n in set(s)],
+		sorted([(l.count(n), n) for n in set(s)],
 			key=lambda t: t[0],
 			reverse=True
 		)
