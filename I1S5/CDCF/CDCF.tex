@@ -183,12 +183,12 @@ découlent.
 \subsection{Contraintes}
 \begin{itemize}
 	\item Le système ne doit entraîner aucune embauche;
-	\item Le système ne doit en rien perturber la productivitée;
+	\item Le système ne doit en rien perturber la productivité;
 	\item Le système doit être oppérationnel pour dans 1 an après la validation
 	de ce document;
 	\item La réalisation du système a un budget égal au manque à gagner suite à
 	la baisse du chiffre d'affaire de la VPC, c.à.d 20.300€.\\
-	Par allieurs, nous en avons débuit un TRI (temps de retour sur
+	Par ailleurs, nous en avons débuit un TRI (temps de retour sur
 	investissement) de 1 an.
 \end{itemize}
 
@@ -196,23 +196,42 @@ découlent.
 
 \subsection{Gérer précisément le stock}\label{cat:besoin:stock}
 Le premier besoin, étant une des causes racines, est la gestion précise du
-stock. Jusqu'à présent, de nombreuses erreurs ont été constatés, notamment suite
-à l'augmentation du nombre de références.
+stock. Jusqu'à présent, de nombreuses erreurs ont été constatées, notamment
+suite à l'augmentation du nombre de références.
 \medskip\\
-D'une part, ce besoin pourrait être voué à évoluer sur une nouvelle augmentation
-des demandes et/ou références serait de nouveau constatée. D'autre part, une
-baisse de ces derniers pourrait rendre ce besoin caduque.
+D'une part, ce besoin pourrait être voué à évoluer par une nouvelle augmentation
+des demandes et/ou références. D'autre part, une baisse de ces derniers pourrait
+rendre ce besoin caduque.
 
-\subsection{Facturer correctement}
+\begin{figure}[hbt!]
+	\centering
+	\includesvg[width=0.5\textwidth]{images/B1.svg}
+	\caption{
+		Besoin n°1: Gérer précisément le stock.
+	}
+\end{figure}
+\FloatBarrier
+
+\subsection{Facturer correctement}\label{cat:besoin:facturer}
 En conséquence des causes racines, la facturation en est directement impactée.
-De nombreuses erreures ont été constatées et le besoin d'une facturation
+De nombreuses erreurs ont été constatées et le besoin d'une facturation
 correcte en est déduite.
 \medskip\\
 Les raisons de l'évolution ou de la disparition de ce besoin sont similaires
-à \hyperref[cat:besoin:stock]{\nameref{cat:besoin:stock}}.
+à \nameref{cat:besoin:stock}.
+
+\begin{figure}[hbt!]
+	\centering
+	\includesvg[width=0.5\textwidth]{images/B2.svg}
+	\caption{
+		Besoin n°2: Facturer correctement.
+	}
+\end{figure}
+\FloatBarrier
 
 \subsection{Optimiser les tournées de livraison (VPC)}
-La deuxième cause racine créé aussi sont besoin d'optimiser les tournées de
+	\label{cat:besoin:livraison}
+La deuxième cause racine met en évidence son besoin d'optimiser les tournées de
 livraison, uniquement pour la VPC. De nombreux retards et erreurs ont été
 constatés notamment suite à l'augmentation des demandes.
 \medskip\\
@@ -220,11 +239,43 @@ Contrairement aux deux précédents, seul l'augmentation ou la réduction
 des demandes entraînerait respectivement l'évolution ou la potentielle
 disparition de ce besoin.
 
+\begin{figure}[hbt!]
+	\centering
+	\includesvg[width=0.5\textwidth]{images/B3.svg}
+	\caption{
+		Besoin n°3: Optimiser les tournées de livraison (VPC).
+	}
+\end{figure}
+\FloatBarrier
+
+\newpage
 \subsection{Hiérarchisation}
+
+\begin{table}[hbt!]
+\centering
+
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{1\textwidth}{|X|c|c|c|}
+	\hline
+		\textbf{Besoin}
+		& \textbf{Court terme} & \textbf{Moyen terme} & \textbf{Long terme}\\
+	\hline
+		B1 (\nameref{cat:besoin:stock})
+		& Non & Non & Non\\
+	\hline
+		B2 (\nameref{cat:besoin:facturer})
+		& Non & Non & Non\\
+	\hline
+		B3 (\nameref{cat:besoin:livraison})
+		& Non & Non & Non\\
+	\hline
+\end{tabularx}
+
+\caption{\textit{Hiérarchisation des besoins.}}
+\end{table}
 
 \section{Situation de vies du système}
 
-\newpage
 \subsection{Transport}
 \begin{figure}[hbt!]
 	\centering
@@ -235,6 +286,7 @@ disparition de ce besoin.
 \end{figure}
 \FloatBarrier
 
+\newpage
 \subsection{Installation}
 \begin{figure}[hbt!]
 	\centering
@@ -243,7 +295,6 @@ disparition de ce besoin.
 \end{figure}
 \FloatBarrier
 
-\newpage
 \subsection{Utilisation}
 \begin{figure}[hbt!]
 	\centering
@@ -252,6 +303,7 @@ disparition de ce besoin.
 \end{figure}
 \FloatBarrier
 
+\newpage
 \subsection{Repos}
 \begin{figure}[hbt!]
 	\centering
@@ -260,7 +312,6 @@ disparition de ce besoin.
 \end{figure}
 \FloatBarrier
 
-\newpage
 \subsection{Maintenance}
 \begin{figure}[hbt!]
 	\centering
@@ -422,7 +473,7 @@ Le système doit \textbf{se conformer} à des \uline{Normes}:
 \begin{itemize}
 	\item \textbf{Usage:} \begin{itemize}
 		\item Normes: Règlementations standardisées ou non visant à assurer une
-			  garanti de sécurité et d'adaptabilité aux autres systèmes.
+			  garantie de sécurité et d'adaptabilité aux autres systèmes.
 			  Notamment, le système ne doit pas être dangeureux, humainement
 			  et écologiquement, il doit se conformer à toute nomenclature
 			  définie par l'entreprise et doit se conformer aux normes
@@ -445,7 +496,7 @@ Le système doit \textbf{résister} aux aggressions du \uline{Milieu Extérieur}
 	\item \textbf{Usage:} \begin{itemize}
 		\item Milieu Extérieur: Tout phénomène physique incluant la chute,
 		l'humidité, la température, les rongeurs et toute autre altération
-		portant atteintes à son intégrité;
+		portant atteinte à son intégrité;
 		\item Résister: Le système doit s'opposer aux alterations et à toute
 			  dégradation de façon qu'il puisse toujours remplir ses fonctions
 			  principales;
@@ -494,7 +545,7 @@ Le système doit \textbf{être compatible} à son \uline{Support}.
 	\item \textbf{Usage:} \begin{itemize}
 		\item Support: Moyen, matériel ou média de transport, de préférence
 			  open-source, connu du grand public, reconnu comme fiable à 99\% et
-			  rapide à des vitesses optimisés aux infrastructures;
+			  rapide à des vitesses optimisées aux infrastructures;
 		\item Être compatible: Le système doit être encapsulable dans le support
 			  ci-dessus en un maximum de 10 secondes, sans nécessiter de
 			  manipulations supplémentaires dans sa forme finale;
@@ -555,7 +606,7 @@ Le système permet au \uline{Magasinier} de \textbf{gérer} le \uline{Stock}.
 		\item Magasinier: Personnel de l'entreprise en charge de la gestion du
 			  stock et de la préparation de commandes.
 		\item Stock: Le système doit représenter fidèlement, avec une latence de
-			  10 minutes, la quantité d'articles présent dans le lou les
+			  10 minutes, la quantité d'articles présents dans le ou les
 			  entrepôts.\\
 			  \uline{Champs d'une Fiche Article:}
 			  \begin{itemize}
@@ -566,7 +617,7 @@ Le système permet au \uline{Magasinier} de \textbf{gérer} le \uline{Stock}.
 				\item Quantité en stock;
 				\item Seuil mini avant alerte;
 				\item Quantité de réapprovisionnement après alerte;
-				\item Quantité commandé au fournisse;
+				\item Quantité commandée au fournisseur;
 				\item Date de dernier réapprovisionnement;
 			  \end{itemize}
 			  \uline{Champ d'un Bon de commande:}
