@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="author" content="Moi">
+    <meta name="keywords" content="Ma,Fabuleuse,Histoire">
+
+    <title>Ma première page HTML</title>
+
+    <link rel="stylesheet" href="reset.css">
+    
+    <style>
+        .clickable:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ma fabuleuse histoire</h1>
+<!--    <p>Il était une fois, un étudiant en informatique.</p>-->
+    <p>Durant ses années d'études,<br> il a pu apprécier de nombreux cours sur le Web.</p>
+    <h2>Chute de ma fabuleuse histoire</h2>
+    <p>Aujourd'hui, à l'ENSEIRB-MATMECA, c'est bien la quatrième fois qu'il se mange les même notions...</p>
+
+    <h2>Analyse de ma fabuleuse histoire</h2>
+    <ol>
+        <li>L'auteur commence par introduire le personnage, mais sans l'introduire, car le texte n'est pas visible.</li>
+        <li>Ensuite, l'auteur décrit la situation en appliquant une cassure entre ses années d'études et ses cours Web, qu'il ne semble pas vraiment apprécier : la phrase est détruite, antithèse ! On ressent une détresse.</li>
+        <li>Enfin, l'auteur est soulé...</li>
+    </ol>
+
+    <figure>
+        <img class="clickable" src="pont-de-pierre.jpg"
+             alt="Le pont en pierre de ma fabuleuse histoire."
+             width="512"
+             href="https://fr.wikipedia.org/wiki/Pontdepierre_(Bordeaux)"
+        >
+        <figcaption>Image qui se sent lien ; je vous jure!</figcaption>
+    </figure>
+    <script>
+        const elements = document.querySelectorAll(".clickable");
+
+        elements.forEach(el => el.addEventListener("click", (ev) =>
+            window.location.href = el.getAttribute("href")
+        ));
+    </script>
+
+
+    <a href="https://enseirb-matmeca.bordeaux-inp.fr/fr">Mon école...</a>
+</body>
+</html>
