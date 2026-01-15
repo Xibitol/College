@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Ex3: Eclipse - TD3</title>
+
+	<style>
+		.image--container{
+			width: 500px;
+			aspect-ratio: 95/67;
+		}
+
+		#microsystems{
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<p class="image--container">
+		<img id="microsystems" src="../images/soleil.jpg" alt="">
+	</p>
+
+	<button id="grow">+</button>
+	<button id="shrink">-</button>
+
+	<script>
+		const FIRST_SUN_IMAGE = "images/soleil.jpg";
+		const SECOND_SUN_IMAGE = "images/eclipse.jpg";
+		const MIN_SIZE = 250;
+		const MAX_SIZE = 500;
+
+		/** @type {HTMLImageElement} */
+		const image = document.getElementById("microsystems");
+		/** @type {HTMLButtonElement} */
+		const grow = document.getElementById("grow");
+		/** @type {HTMLButtonElement} */
+		const shrink = document.getElementById("shrink");
+
+		// 3.2
+		grow.addEventListener("click", e => {
+			image.style.width = `${Math.min(image.width + 20, MAX_SIZE)}px`;
+		});
+
+		// 2.3
+		shrink.addEventListener("click", e => {
+			image.style.width = `${Math.max(MIN_SIZE, image.width - 20)}px`;
+		});
+
+		// 2.4 2.5
+		image.addEventListener("click", e => {
+			if(image.src.endsWith(FIRST_SUN_IMAGE))
+				image.src = image.src.replace(
+					FIRST_SUN_IMAGE, SECOND_SUN_IMAGE
+				);
+			else
+				image.src = image.src.replace(
+					SECOND_SUN_IMAGE, FIRST_SUN_IMAGE
+				);
+		});
+	</script>
+</body>
+</html>
