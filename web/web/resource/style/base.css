@@ -1,0 +1,13 @@
+@import url("reset.css");
+@import url("theme.css");
+
+*, *:before, *:after{
+	box-sizing: border-box;
+}
+
+body{
+	width: 100%;
+	height: 100vh;
+
+	background-color: var(--color-surface);
+}
