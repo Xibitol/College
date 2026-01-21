@@ -29,3 +29,8 @@
 [submodule "L2S4/Immersion"]
 	path = L2S4/Immersion
 	url = git@github.com:Xibitol/TimeCapsule
+
+# I1S6
+[submodule "I1S6/BPW/Projet"]
+	path = I1S6/BPW/Projet
+	url = git@github.com:Xibitol/TheTypist
