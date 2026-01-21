@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/TP2/src/advanced.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/basic.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/encapsulated.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/group.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/set.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/setup.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/teacher/base.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/teacher/donnees.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/teacher/drop.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+    <file url="file://$PROJECT_DIR$/TP2/src/update.sql" value="01e257e7-c218-49e2-b545-7f21efb76a97" />
+  </component>
+</project>
