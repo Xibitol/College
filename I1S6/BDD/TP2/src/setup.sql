@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS bdd_tp2;
+CREATE SCHEMA bdd_tp2;
