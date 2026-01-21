@@ -25,6 +25,21 @@ SELECT acteur.numero_acteur, acteur.nom_acteur FROM acteur
 		)
 	);
 
+-- 28 BIS (17:32 to 18:39 -> 1 heure et 7 minutes)
+SELECT acteur.numero_acteur, acteur.nom_acteur
+	FROM acteur
+	INNER JOIN acteur AS aBis ON acteur.nation_acteur = aBis.nation_acteur
+	GROUP BY acteur.numero_acteur, acteur.nom_acteur
+	HAVING COUNT(aBis.numero_acteur) = (
+		SELECT COUNT(a2.numero_acteur) AS "count"
+			FROM acteur AS a1
+			INNER JOIN acteur AS a2 ON a1.nation_acteur = a2.nation_acteur
+			GROUP BY a1.numero_acteur
+			ORDER BY "count" DESC
+			LIMIT 1
+	)
+	ORDER BY acteur.numero_acteur ASC;
+
 -- 29
 WITH actors AS (
 		SELECT * FROM role
