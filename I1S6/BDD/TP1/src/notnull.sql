@@ -1,0 +1,8 @@
+-- 3
+
+ALTER TABLE article
+	ALTER COLUMN id_journal SET NOT NULL;
+
+ALTER TABLE auteur
+	ALTER COLUMN id_article SET NOT NULL,
+	ALTER COLUMN id_chercheur SET NOT NULL;
