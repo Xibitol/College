@@ -1,6 +1,6 @@
 # College [![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-orange.svg)](COPYING.LESSER)
 
-> Current year: **[I1 S5](I1S5)**
+> Current year: **[I1 S6](I1S6)**
 
 ## Documentation
 - L1
@@ -39,6 +39,13 @@
 		- [SEA](L2S4/SEA): _Système d'Exploitation - Avancé_
 - I1
 	- [S5](I1S5)
+		- [IPC](I1S5/IPC): _Introduction à la Programmation C_
+		- [IEU](I1S5/IEU): _Introduction à l'Environnement Unix_
+		- [LSP](I1S5/LSP): _Languages de Scripts et programmation Python_
+		- [CDCF](I1S5/CDCF): _Analyse Fonctionelle: Cahier Des Charges Fonctionelles_
+	- [S6](I1S6)
+		- [BDD](I1S5/BDD): _Base de données_
+		- [BPW](I1S5/BPW): _Base Programmation Web_
 
 ### Modules
 - L1S2/PTADD: [PetRescue](https://gitlab.univ-lr.fr/l12024/quantumquartet/petrescue) (https://qq.pimous.dev/)
@@ -50,16 +57,18 @@
 - L2S4/PTADD/Analyzers: [ShallowView - Analyzers](https://github.com/ShallowView/Analyzers)
 - L2S4/Immersion: [Temporal Studio - Time Capsule](https://github.com/Xibitol/TimeCapsule)
 
+- I1S6/Projet: [The Typist](https://github.com/Xibitol/TheTypist) (https://thetypist.pimous.dev/)
+
 ## License
 College (Development work)  
 Copyright &copy; 2023 to 2025 - Xibitol (https://www.github.com/Xibitol)
 
-These programs is free software: you can redistribute it and/or modify it under
+These programs are free software: you can redistribute them and/or modify them under
 the terms of the GNU Lesser General Public License as published by the Free
 Software Foundation, either version 3 of the License, or (at your option) any
 later version.
 
-The latters are distributed in the hope that it will be useful, but WITHOUT ANY
+The latter are distributed in the hope that they will be useful, but WITHOUT ANY
 WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
