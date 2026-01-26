@@ -9,7 +9,17 @@
     <file url="file://$PROJECT_DIR$/TP2/src/setup.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/TP2/src/teacher/base.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/TP2/src/teacher/donnees.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP2/src/teacher/donnees_etendues.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/TP2/src/teacher/drop.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/TP2/src/update.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/proc.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/setup.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/teacher/base.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/teacher/base_etendue.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/teacher/donnees.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/teacher/donnees_etendues.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/teacher/drop.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/trigger.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/TP3/src/view.sql" dialect="PostgreSQL" />
   </component>
 </project>
