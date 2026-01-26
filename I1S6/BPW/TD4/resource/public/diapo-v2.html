@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+  <head>
+    <title> Deuxième diaporama</title>
+    <meta charset="UTF-8" />
+
+    <link href="style/style-diapo.css" type="text/css" rel="stylesheet" />
+
+		<!-- chargement du script -->
+	<script src="scripts/tabImages.js"></script>
+	<script src="scripts/diapov2.js"></script>
+  </head>
+  <body>
+	<div class="diaporama">
+		<img src="images/image.jpg" alt="un diaporama" id="diapo"/>
+		<p><em id="filename"></em></p>
+		<p><span id="index"></span>/<span id="total"></span></p>
+	</div>
+	<div>
+		<label for="delay">Délai (en secondes):</label>
+		<input id="delay" type="number" min="1" value="2">
+		<button id="play">▶</button>
+	</div>
+  </body>
+</html>
